@@ -1,0 +1,8 @@
+{
+    "symbol": "BTCUSDT",
+    "timeframe": "1h",
+    "futures": false,
+    "hdf5_path": "data/binance.h5",
+    "signals_path": "supertrend_BTCUSDT_1h_signals.csv",
+    "output_file": "signals_plot_spot.html"
+}

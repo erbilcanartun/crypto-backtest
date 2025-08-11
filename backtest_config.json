@@ -1,0 +1,19 @@
+{
+    "mode": "backtest",
+    "exchange": "binance",
+    "symbol": "BTCUSDT",
+    "futures": false,
+    "strategy": "supertrend",
+    "timeframe": "1h",
+    "from_time": "2025-04-16",
+    "to_time": "2025-05-16",
+    "strategy_params": {
+        "atr_period": 10,
+        "atr_multiplier": 2.0,
+        "leverage": 1.0,
+        "commission_rate": 0.04,
+        "initial_capital": 10000.0
+    },
+    "save_signals": true,
+    "output_file": "backtest_results.json"
+}

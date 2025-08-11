@@ -1,0 +1,40 @@
+{
+    "strategy": "supertrend",
+    "symbol": "BTCUSDT",
+    "timeframe": "1h",
+    "exchange": "binance",
+    "from_time": 1744750800000,
+    "to_time": 1747342800000,
+    "params": {
+        "atr_period": 10,
+        "atr_multiplier": 2.0,
+        "leverage": 1.0,
+        "commission_rate": 0.04,
+        "initial_capital": 10000.0
+    },
+    "config": {
+        "exchange": "binance",
+        "symbol": "BTCUSDT",
+        "strategy": "supertrend",
+        "timeframe": "1h",
+        "from_time": 1744750800000,
+        "to_time": 1747342800000,
+        "strategy_params": {
+            "atr_period": 10,
+            "atr_multiplier": 2.0,
+            "leverage": 1.0,
+            "commission_rate": 0.04,
+            "initial_capital": 10000.0,
+            "futures": false
+        },
+        "save_signals": true
+    },
+    "total_return": 15.944207819189193,
+    "max_drawdown": 0.0,
+    "total_trades": 2,
+    "win_rate": 100.0,
+    "sharpe_ratio": 8.284237803454248,
+    "final_capital": 11594.42078191892,
+    "signals_file": "supertrend_BTCUSDT_1h_signals.csv",
+    "indicators_file": "supertrend_BTCUSDT_1h_indicators.csv"
+}

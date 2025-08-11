@@ -1,0 +1,6 @@
+{
+    "mode": "data",
+    "exchange": "binance",
+    "symbol": "BTCUSDT",
+    "futures": false
+}
