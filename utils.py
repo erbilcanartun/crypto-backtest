@@ -2,7 +2,7 @@ import datetime
 import functools
 import logging
 import pandas as pd
-from typing import Dict
+from typing import Dict, Any, Optional
 
 logger = logging.getLogger(__name__)
 
@@ -44,10 +44,69 @@ STRAT_PARAMS = {
             "type": float,
             "min": 100.0,
             "default": 10000.0
+        },
+        "stop_loss_pct": {
+            "name": "Stop Loss (%)", 
+            "type": float,
+            "min": 0.001,
+            "max": 0.2,
+            "default": 0.02
+        },
+        "use_stop_loss": {
+            "name": "Use Stop Loss", 
+            "type": bool,
+            "default": True
+        }
+    },
+    "moving_average_crossover": {
+        "short_period": {
+            "name": "Short Period", 
+            "type": int,
+            "min": 1,
+            "max": 100,
+            "default": 12
+        },
+        "long_period": {
+            "name": "Long Period", 
+            "type": int,
+            "min": 1,
+            "max": 200,
+            "default": 26
+        },
+        "leverage": {
+            "name": "Leverage", 
+            "type": float,
+            "min": 1.0,
+            "max": 100.0,
+            "default": 1.0
+        },
+        "commission_rate": {
+            "name": "Commission Rate (%)", 
+            "type": float,
+            "min": 0.0,
+            "max": 1.0,
+            "default": 0.04
+        },
+        "initial_capital": {
+            "name": "Initial Capital", 
+            "type": float,
+            "min": 100.0,
+            "default": 10000.0
+        },
+        "stop_loss_pct": {
+            "name": "Stop Loss (%)", 
+            "type": float,
+            "min": 0.001,
+            "max": 0.2,
+            "default": 0.02
+        },
+        "use_stop_loss": {
+            "name": "Use Stop Loss", 
+            "type": bool,
+            "default": True
         }
     }
 }
-
 
 def ms_to_dt(ms: int) -> datetime.datetime:
     """
@@ -58,50 +117,50 @@ def ms_to_dt(ms: int) -> datetime.datetime:
 def resample_timeframe(data: pd.DataFrame, tf: str) -> pd.DataFrame:
     """
     Resample OHLCV data to a different timeframe.
-    
-    Args:
-        data: DataFrame with OHLCV data
-        tf: Target timeframe (e.g., '1m', '1h')
-        
-    Returns:
-        Resampled DataFrame
-        
-    Raises:
-        ValueError: If timeframe is invalid
     """
     if tf not in TF_EQUIV:
         valid_tfs = ', '.join(TF_EQUIV.keys())
         raise ValueError(f"Invalid timeframe: {tf}. Must be one of: {valid_tfs}")
-    return data.resample(TF_EQUIV[tf]).agg(
-        {"open": "first", "high": "max", "low": "min", "close": "last", "volume": "sum"}
-    )
+    return data.resample(TF_EQUIV[tf]).agg({
+        "open": "first",
+        "high": "max",
+        "low": "min",
+        "close": "last",
+        "volume": "sum"
+    }).dropna()
 
-def validate_numeric_param(value, param_type, min_val=None, max_val=None, name=None):
+def validate_numeric_param(value: Any, param_type: type, min_val: Optional[float] = None, 
+                           max_val: Optional[float] = None, name: Optional[str] = None) -> tuple[bool, Optional[str], Any]:
     """
-    Validate a numeric parameter.
-    
-    Args:
-        value: Value to validate
-        param_type: Expected type (e.g., int, float)
-        min_val: Minimum allowed value
-        max_val: Maximum allowed value
-        name: Parameter name for error messages
-        
-    Returns:
-        Tuple (is_valid, error_message, converted_value)
+    Validate a parameter (numeric or boolean).
     """
     param_name = name if name else "Parameter"
     try:
-        converted = param_type(value)
-        if min_val is not None and converted < min_val:
-            error_msg = f"{param_name} must be at least {min_val}"
-            logger.warning(error_msg)
-            return False, error_msg, None
-        if max_val is not None and converted > max_val:
-            error_msg = f"{param_name} must not exceed {max_val}"
-            logger.warning(error_msg)
-            return False, error_msg, None
-        return True, None, converted
+        if param_type is bool:
+            if not isinstance(value, bool):
+                try:
+                    if isinstance(value, str):
+                        value = value.lower() in ('true', '1')
+                    elif isinstance(value, (int, float)):
+                        value = bool(value)
+                    else:
+                        raise ValueError
+                except ValueError:
+                    error_msg = f"{param_name} must be a valid boolean"
+                    logger.warning(error_msg)
+                    return False, error_msg, None
+            return True, None, value
+        else:
+            converted = param_type(value)
+            if min_val is not None and converted < min_val:
+                error_msg = f"{param_name} must be at least {min_val}"
+                logger.warning(error_msg)
+                return False, error_msg, None
+            if max_val is not None and converted > max_val:
+                error_msg = f"{param_name} must not exceed {max_val}"
+                logger.warning(error_msg)
+                return False, error_msg, None
+            return True, None, converted
     except (ValueError, TypeError):
         error_msg = f"{param_name} must be a valid {param_type.__name__}"
         logger.warning(error_msg)

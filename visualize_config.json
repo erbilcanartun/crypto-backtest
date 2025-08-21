@@ -1,8 +1,8 @@
 {
     "symbol": "BTCUSDT",
-    "timeframe": "1h",
+    "timeframe": "1d",
     "futures": false,
     "hdf5_path": "data/binance.h5",
-    "signals_path": "supertrend_BTCUSDT_1h_signals.csv",
+    "signals_path": "moving_average_crossover_BTCUSDT_1d_signals.csv",
     "output_file": "signals_plot_spot.html"
 }

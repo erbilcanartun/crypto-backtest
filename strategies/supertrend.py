@@ -13,19 +13,23 @@ class SupertrendStrategy(Strategy):
     """
     def __init__(self, atr_period: int, atr_multiplier: float, 
                  leverage: float = 1.0, commission_rate: float = 0.04, 
-                 initial_capital: float = 10000.0, futures: bool = False):
+                 initial_capital: float = 10000.0, futures: bool = False,
+                 stop_loss_pct: float = 0.02, use_stop_loss: bool = True):
         """
         Initialize the Supertrend strategy.
         """
         super().__init__(atr_period=atr_period, atr_multiplier=atr_multiplier, 
                         leverage=leverage, commission_rate=commission_rate, 
-                        initial_capital=initial_capital, futures=futures)
+                        initial_capital=initial_capital, futures=futures,
+                        stop_loss_pct=stop_loss_pct, use_stop_loss=use_stop_loss)
         self.atr_period = atr_period
         self.atr_multiplier = atr_multiplier
         self.leverage = leverage
         self.commission_rate = commission_rate
         self.initial_capital = initial_capital
         self.futures = futures
+        self.stop_loss_pct = stop_loss_pct
+        self.use_stop_loss = use_stop_loss
     
     def calculate_indicators(self, df: pd.DataFrame) -> pd.DataFrame:
         """
@@ -37,147 +41,196 @@ class SupertrendStrategy(Strategy):
             abs(df['high'] - df['close'].shift(1)),
             abs(df['low'] - df['close'].shift(1))
         ])
-        df['atr'] = df['tr'].rolling(window=self.atr_period).mean()
+        # Use EMA for ATR (standard in many implementations)
+        df['atr'] = df['tr'].ewm(alpha=1/self.atr_period, min_periods=self.atr_period).mean()
 
         hl2 = (df['high'] + df['low']) / 2
         df['upper_band'] = hl2 + (self.atr_multiplier * df['atr'])
         df['lower_band'] = hl2 - (self.atr_multiplier * df['atr'])
-        df['in_uptrend'] = True
-        df['supertrend'] = df['lower_band']
+        df['in_uptrend'] = np.nan  # Initialize as NaN to avoid bias
+        df['supertrend'] = np.nan
 
-        for i in range(1, len(df)):
+        # Find first valid ATR index
+        first_valid_idx = df['atr'].first_valid_index()
+        if first_valid_idx is not None:
+            first_idx = df.index.get_loc(first_valid_idx)
+            # Set initial supertrend to lower_band, assume uptrend
+            df['supertrend'].iloc[first_idx] = df['lower_band'].iloc[first_idx]
+            df['in_uptrend'].iloc[first_idx] = True
+            # Immediate flip check for initial
+            if df['close'].iloc[first_idx] < df['supertrend'].iloc[first_idx]:
+                df['in_uptrend'].iloc[first_idx] = False
+                df['supertrend'].iloc[first_idx] = df['upper_band'].iloc[first_idx]
+
+        # Update for subsequent rows
+        for i in range(first_idx + 1, len(df)):
             prev_close = df['close'].iloc[i-1]
             curr_close = df['close'].iloc[i]
             curr_upper = df['upper_band'].iloc[i]
             curr_lower = df['lower_band'].iloc[i]
+            prev_lower = df['lower_band'].iloc[i-1]
+            prev_upper = df['upper_band'].iloc[i-1]
             prev_supertrend = df['supertrend'].iloc[i-1]
-            prev_in_uptrend = df['in_uptrend'].iloc[i-1]
 
-            if prev_in_uptrend:
-                if curr_close < prev_supertrend:
-                    df.loc[df.index[i], 'in_uptrend'] = False
-                    df.loc[df.index[i], 'supertrend'] = curr_upper
-                else:
-                    df.loc[df.index[i], 'in_uptrend'] = True
-                    df.loc[df.index[i], 'supertrend'] = curr_lower
+            if pd.isna(prev_supertrend):
+                continue
+
+            # Standard flip: compare to prev_supertrend, not basic bands
+            if prev_close > prev_supertrend:
+                df['in_uptrend'].iloc[i] = True
+            elif prev_close < prev_supertrend:
+                df['in_uptrend'].iloc[i] = False
             else:
-                if curr_close > prev_supertrend:
-                    df.loc[df.index[i], 'in_uptrend'] = True
-                    df.loc[df.index[i], 'supertrend'] = curr_lower
-                else:
-                    df.loc[df.index[i], 'in_uptrend'] = False
-                    df.loc[df.index[i], 'supertrend'] = curr_upper
+                df['in_uptrend'].iloc[i] = df['in_uptrend'].iloc[i-1]
+            
+            # Set supertrend based on trend
+            if df['in_uptrend'].iloc[i]:
+                df['supertrend'].iloc[i] = curr_lower
+            else:
+                df['supertrend'].iloc[i] = curr_upper
 
-            logger.debug(f"Index {i}: close={curr_close:.2f}, supertrend={df['supertrend'].iloc[i]:.2f}, in_uptrend={df['in_uptrend'].iloc[i]}, upper={curr_upper:.2f}, lower={curr_lower:.2f}")
+            # Adjust ratchet
+            if df['in_uptrend'].iloc[i]:
+                if df['in_uptrend'].iloc[i-1] and df['supertrend'].iloc[i] < prev_supertrend:
+                    df['supertrend'].iloc[i] = prev_supertrend  # max(curr, prev)
+            else:
+                if not df['in_uptrend'].iloc[i-1] and df['supertrend'].iloc[i] > prev_supertrend:
+                    df['supertrend'].iloc[i] = prev_supertrend  # min(curr, prev)
+
+            # Log proximity for debugging (optional, remove if not needed)
+            distance_to_super = (prev_close - prev_supertrend) / prev_supertrend * 100
+            if abs(distance_to_super) < 5:
+                logger.debug(f"Row {i}: Close {prev_close:.2f}, Supertrend {prev_supertrend:.2f} ({distance_to_super:.2f}%)")
+
+        # Log trend flip count for debugging
+        flip_count = (df['in_uptrend'] != df['in_uptrend'].shift(1)).sum(skipna=True)
+        logger.info(f"Supertrend trend flips detected: {flip_count}. If 0, no signals possible.")
 
         return df
     
     def generate_signals(self, df: pd.DataFrame) -> pd.DataFrame:
         """
-        Generate trading signals based on Supertrend.
+        Generate trading signals with optional stop-loss.
         """
-        df = df.copy()
+        # Drop rows with NaN indicators to avoid invalid signals
+        df = df.dropna(subset=['atr', 'upper_band', 'lower_band', 'supertrend', 'in_uptrend']).copy()
+
         df['signal'] = 0
         df['position'] = 0
         df['entry_price'] = 0.0
         df['exit_price'] = 0.0
         df['trade_pnl'] = 0.0
-        df['capital'] = float(self.initial_capital)
         df['cum_pnl'] = 0.0
         df['drawdown'] = 0.0
 
         position = 0
         entry_price = 0.0
         capital = self.initial_capital
-        max_capital = self.initial_capital
+        cum_pnl = 0.0
+        max_capital = capital
 
         for i in range(1, len(df)):
-            curr_trend = df['in_uptrend'].iloc[i]
-            prev_trend = df['in_uptrend'].iloc[i-1]
-            current_price = df['close'].iloc[i]
+            prev_in_uptrend = df['in_uptrend'].iloc[i-1]
+            curr_in_uptrend = df['in_uptrend'].iloc[i]
+            curr_close = df['close'].iloc[i]
+            curr_low = df['low'].iloc[i]
+            curr_high = df['high'].iloc[i]
 
-            df.loc[df.index[i], 'capital'] = capital
-            df.loc[df.index[i], 'position'] = position
-            df.loc[df.index[i], 'entry_price'] = entry_price
+            # Check stop-loss only if enabled
+            stop_loss_triggered = False
+            exit_price = 0.0
+            if self.use_stop_loss and position != 0:
+                # Calculate stop-loss levels
+                stop_loss_price = 0.0
+                if position == 1:  # Long position
+                    stop_loss_price = entry_price * (1 - self.stop_loss_pct)
+                elif position == -1:  # Short position
+                    stop_loss_price = entry_price * (1 + self.stop_loss_pct)
 
-            if df['capital'].iloc[i] > max_capital:
-                max_capital = df['capital'].iloc[i]
-            df.loc[df.index[i], 'drawdown'] = (max_capital - df['capital'].iloc[i]) / max_capital if max_capital > 0 else 0
-            df.loc[df.index[i], 'cum_pnl'] = (df['capital'].iloc[i] / self.initial_capital) - 1
+                if position == 1 and curr_low <= stop_loss_price:
+                    stop_loss_triggered = True
+                    exit_price = min(curr_close, stop_loss_price)  # Exit at stop-loss or worse
+                elif position == -1 and curr_high >= stop_loss_price:
+                    stop_loss_triggered = True
+                    exit_price = max(curr_close, stop_loss_price)  # Exit at stop-loss or worse
 
-            if curr_trend and not prev_trend:
-                df.loc[df.index[i], 'signal'] = 1
-                logger.debug(f"Buy signal at index {i}: price={current_price:.2f}, curr_trend={curr_trend}, prev_trend={prev_trend}")
-            elif not curr_trend and prev_trend:
-                df.loc[df.index[i], 'signal'] = -1
-                logger.debug(f"Sell signal at index {i}: price={current_price:.2f}, curr_trend={curr_trend}, prev_trend={prev_trend}")
+            if stop_loss_triggered:
+                df['signal'].iloc[i] = -position
+                df['position'].iloc[i] = 0
+                df['exit_price'].iloc[i] = exit_price
+                df['entry_price'].iloc[i] = entry_price
+                trade_return = 0.0
+                if self.futures:
+                    trade_return = (exit_price - entry_price) / entry_price * position * self.leverage
+                else:
+                    trade_return = (exit_price - entry_price) / entry_price * position
+                commission = abs(trade_return) * self.commission_rate / 100
+                trade_pnl = (trade_return - commission) * capital
+                cum_pnl += trade_pnl
+                capital += trade_pnl
+                df['trade_pnl'].iloc[i] = trade_pnl
+                df['cum_pnl'].iloc[i] = cum_pnl
+                df['drawdown'].iloc[i] = (max_capital - capital) / max_capital
+                max_capital = max(max_capital, capital)
+                position = 0
+                entry_price = 0.0
+                continue
 
-            if df['signal'].iloc[i] != 0:
-                if position != 0:
+            # Regular Supertrend signals
+            if prev_in_uptrend != curr_in_uptrend:
+                if position != 0:  # Exit current position
+                    df['signal'].iloc[i] = -position
+                    df['position'].iloc[i] = 0
+                    df['exit_price'].iloc[i] = curr_close
+                    df['entry_price'].iloc[i] = entry_price
+                    trade_return = 0.0
                     if self.futures:
-                        pnl = self.leverage * ((current_price - entry_price) / entry_price if position == 1 else (entry_price - current_price) / entry_price) * 100
-                        pnl -= self.commission_rate * 2
+                        trade_return = (curr_close - entry_price) / entry_price * position * self.leverage
                     else:
-                        if position == 1:  # Only calculate PNL for long positions in spot
-                            pnl = (current_price / entry_price - 1) * 100
-                            pnl -= self.commission_rate  # Single commission on exit
-                        else:
-                            pnl = 0  # No PNL for short positions in spot
-                    if pnl != 0:  # Only update if a valid trade is closed
-                        capital *= (1 + pnl / 100)
-                        df.loc[df.index[i], 'trade_pnl'] = pnl
-                        df.loc[df.index[i], 'exit_price'] = current_price
-                        logger.debug(f"Closed position at index {i}: mode={'futures' if self.futures else 'spot'}, position={position}, pnl={pnl:.2f}%, capital={capital:.2f}")
+                        trade_return = (curr_close - entry_price) / entry_price * position
+                    commission = abs(trade_return) * self.commission_rate / 100
+                    trade_pnl = (trade_return - commission) * capital
+                    cum_pnl += trade_pnl
+                    capital += trade_pnl
+                    df['trade_pnl'].iloc[i] = trade_pnl
+                    df['cum_pnl'].iloc[i] = cum_pnl
+                    df['drawdown'].iloc[i] = (max_capital - capital) / max_capital
+                    max_capital = max(max_capital, capital)
                     position = 0
                     entry_price = 0.0
 
-                if self.futures:
-                    if (df['signal'].iloc[i] == 1 and position == 0) or (df['signal'].iloc[i] == -1 and position == 0):
-                        capital *= (1 - self.commission_rate / 100)  # Commission on entry
-                        position = df['signal'].iloc[i]
-                        entry_price = current_price
-                        df.loc[df.index[i], 'position'] = position
-                        df.loc[df.index[i], 'entry_price'] = entry_price
-                        logger.debug(f"Opened position at index {i}: mode=futures, position={position}, entry_price={entry_price:.2f}")
-                else:
-                    if df['signal'].iloc[i] == 1 and position == 0:  # Only open long positions in spot
-                        position = 1
-                        entry_price = current_price
-                        df.loc[df.index[i], 'position'] = position
-                        df.loc[df.index[i], 'entry_price'] = entry_price
-                        logger.debug(f"Opened position at index {i}: mode=spot, position={position}, entry_price={entry_price:.2f}")
-
-        # Close any open position at the last candle
-        if position != 0:
-            current_price = df['close'].iloc[-1]
-            if self.futures:
-                pnl = self.leverage * ((current_price - entry_price) / entry_price if position == 1 else (entry_price - current_price) / entry_price) * 100
-                pnl -= self.commission_rate * 2
+                # Enter new position
+                if curr_in_uptrend and position == 0:  # Enter long
+                    position = 1
+                    entry_price = curr_close
+                    df['signal'].iloc[i] = 1
+                    df['position'].iloc[i] = 1
+                    df['entry_price'].iloc[i] = entry_price
+                elif not curr_in_uptrend and position == 0:  # Enter short
+                    position = -1
+                    entry_price = curr_close
+                    df['signal'].iloc[i] = -1
+                    df['position'].iloc[i] = -1
+                    df['entry_price'].iloc[i] = entry_price
             else:
-                if position == 1:  # Only close long positions in spot
-                    pnl = (current_price / entry_price - 1) * 100
-                    pnl -= self.commission_rate
-                else:
-                    pnl = 0  # No PNL for short positions in spot
-            if pnl != 0:
-                capital *= (1 + pnl / 100)
-                df.loc[df.index[-1], 'trade_pnl'] = pnl
-                df.loc[df.index[-1], 'exit_price'] = current_price
-                df.loc[df.index[-1], 'capital'] = capital
-                df.loc[df.index[-1], 'cum_pnl'] = (capital / self.initial_capital) - 1
-                df.loc[df.index[-1], 'drawdown'] = (max_capital - capital) / max_capital if max_capital > 0 else 0
-                logger.debug(f"Closed final position at index {len(df)-1}: mode={'futures' if self.futures else 'spot'}, position={position}, pnl={pnl:.2f}%, capital={capital:.2f}")
+                df['position'].iloc[i] = position
+                df['entry_price'].iloc[i] = entry_price
+                df['cum_pnl'].iloc[i] = cum_pnl
+                df['drawdown'].iloc[i] = (max_capital - capital) / max_capital
 
-        logger.info(f"Generated {len(df[df['signal'] != 0])} signals, {len(df[df['trade_pnl'] != 0])} trades in {'futures' if self.futures else 'spot'} mode")
+        # Log number of signals for debugging
+        signal_count = (df['signal'] != 0).sum()
+        logger.info(f"Generated {signal_count} signals. If 0, check for trend flips in indicators.")
+
         return df
     
     def calculate_performance(self, df: pd.DataFrame) -> Dict[str, float]:
         """
-        Calculate strategy performance metrics.
+        Calculate performance metrics.
         """
-        final_capital = df['capital'].iloc[-1]
-        total_return = ((final_capital / self.initial_capital) - 1) * 100
-        max_drawdown = df['drawdown'].max() * 100 if not df['drawdown'].empty else 0
+        final_capital = self.initial_capital + df['cum_pnl'].iloc[-1] if not df['cum_pnl'].empty else self.initial_capital
+        total_return = (final_capital - self.initial_capital) / self.initial_capital * 100
+        max_drawdown = df['drawdown'].max() if not df['drawdown'].empty else 0
 
         trades = df[df['trade_pnl'] != 0]
         total_trades = len(trades)

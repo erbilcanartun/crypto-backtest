@@ -12,13 +12,23 @@ class Hdf5Client:
         self.hf = h5py.File(f"data/{exchange}.h5", 'a')
         self.hf.flush()
 
-    def create_dataset(self, symbol: str):
-        if symbol not in self.hf.keys():
-            self.hf.create_dataset(symbol, (0, 6), maxshape=(None, 6), dtype="float64")
-            self.hf.flush()
+    def create_dataset(self, symbol: str, futures: bool = False):
+        """Create dataset in market_type/symbol/1m structure."""
+        market_type = 'futures' if futures else 'spot'
+        dataset_path = f"{market_type}/{symbol}/1m"
+        if dataset_path not in self.hf:
+            self.hf.create_dataset(dataset_path, (0, 6), maxshape=(None, 6), dtype="float64")
+            logger.info(f"Created dataset: {dataset_path}")
+        self.hf.flush()
 
-    def write_data(self, symbol: str, data: List[Tuple]):
-        min_ts, max_ts = self.get_first_last_timestamp(symbol)
+    def write_data(self, symbol: str, data: List[Tuple], futures: bool = False):
+        """Write data to market_type/symbol/1m dataset."""
+        market_type = 'futures' if futures else 'spot'
+        dataset_path = f"{market_type}/{symbol}/1m"
+        if dataset_path not in self.hf:
+            self.create_dataset(symbol, futures)
+
+        min_ts, max_ts = self.get_first_last_timestamp(symbol, futures)
         min_ts = min_ts if min_ts is not None else float("inf")
         max_ts = max_ts if max_ts is not None else 0
 
@@ -28,15 +38,24 @@ class Hdf5Client:
             return
 
         data_array = np.array(filtered_data)
-        self.hf[symbol].resize(self.hf[symbol].shape[0] + data_array.shape[0], axis=0)
-        self.hf[symbol][-data_array.shape[0]:] = data_array
+        dataset = self.hf[dataset_path]
+        dataset.resize(dataset.shape[0] + data_array.shape[0], axis=0)
+        dataset[-data_array.shape[0]:] = data_array
         self.hf.flush()
+        logger.info(f"Wrote {len(data_array)} rows to {dataset_path}")
 
-    def get_data(self, symbol: str, from_time: int, to_time: int) -> Optional[pd.DataFrame]:
+    def get_data(self, symbol: str, from_time: int, to_time: int, futures: bool = False) -> Optional[pd.DataFrame]:
+        """Retrieve data from market_type/symbol/1m dataset."""
         start_query = time.time()
-        existing_data = self.hf[symbol][:]
+        market_type = 'futures' if futures else 'spot'
+        dataset_path = f"{market_type}/{symbol}/1m"
+        if dataset_path not in self.hf:
+            logger.error(f"Dataset {dataset_path} not found")
+            return None
 
+        existing_data = self.hf[dataset_path][:]
         if len(existing_data) == 0:
+            logger.warning(f"No data in {dataset_path}")
             return None
 
         data = sorted(existing_data, key=lambda x: x[0])
@@ -50,8 +69,13 @@ class Hdf5Client:
         logger.info(f"Retrieved {len(df)} {symbol} candles in {round(time.time() - start_query, 2)} seconds")
         return df
 
-    def get_first_last_timestamp(self, symbol: str) -> Tuple[Optional[float], Optional[float]]:
-        existing_data = self.hf[symbol][:]
+    def get_first_last_timestamp(self, symbol: str, futures: bool = False) -> Tuple[Optional[float], Optional[float]]:
+        """Get first and last timestamps from market_type/symbol/1m dataset."""
+        market_type = 'futures' if futures else 'spot'
+        dataset_path = f"{market_type}/{symbol}/1m"
+        if dataset_path not in self.hf:
+            return None, None
+        existing_data = self.hf[dataset_path][:]
         if len(existing_data) == 0:
             return None, None
         return min(existing_data, key=lambda x: x[0])[0], max(existing_data, key=lambda x: x[0])[0]

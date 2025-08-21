@@ -3,6 +3,7 @@ import os
 import logging
 import datetime
 from typing import Dict, Any, Optional, List
+from utils import validate_numeric_param
 
 logger = logging.getLogger(__name__)
 
@@ -70,53 +71,26 @@ class ConfigHandler:
             if field not in config:
                 errors.append(f"Missing required field for backtest mode: {field}")
 
-        if 'exchange' in config and config['exchange'].lower() != 'binance':
-            errors.append(f"Invalid exchange: {config['exchange']}. Must be 'binance'")
-
-        if 'strategy' in config and config['strategy'] != 'supertrend':
-            errors.append(f"Invalid strategy: {config['strategy']}. Must be 'supertrend'")
-
-        if 'timeframe' in config:
-            from utils import TF_EQUIV
-            valid_timeframes = list(TF_EQUIV.keys())
-            if config['timeframe'] not in valid_timeframes:
-                errors.append(f"Invalid timeframe: {config['timeframe']}. Must be one of {', '.join(valid_timeframes)}")
-
-        if 'from_time' in config and config['from_time']:
-            try:
-                if isinstance(config['from_time'], str):
-                    datetime.datetime.strptime(config['from_time'], "%Y-%m-%d")
-            except ValueError:
-                errors.append(f"Invalid from_time format: {config['from_time']}. Must be YYYY-MM-DD")
-
-        if 'to_time' in config and config['to_time']:
-            try:
-                if isinstance(config['to_time'], str):
-                    datetime.datetime.strptime(config['to_time'], "%Y-%m-%d")
-            except ValueError:
-                errors.append(f"Invalid to_time format: {config['to_time']}. Must be YYYY-MM-DD")
-
-        if 'strategy' in config and 'strategy_params' in config and config['strategy_params']:
-            if not isinstance(config['strategy_params'], dict):
-                errors.append("strategy_params must be a dictionary")
-            else:
-                from utils import STRAT_PARAMS, validate_numeric_param
-                strategy = config['strategy']
-                if strategy in STRAT_PARAMS:
-                    strat_param_def = STRAT_PARAMS[strategy]
-                    for param_code, param_info in strat_param_def.items():
-                        if param_code not in config['strategy_params']:
-                            errors.append(f"Missing required parameter for {strategy}: {param_info['name']} ({param_code})")
-                        else:
-                            valid, error_msg, _ = validate_numeric_param(
-                                config['strategy_params'][param_code],
-                                param_info['type'],
-                                param_info.get('min'),
-                                param_info.get('max'),
-                                param_info['name']
-                            )
-                            if not valid:
-                                errors.append(f"Invalid {param_info['name']}: {error_msg}")
+        if 'strategy_params' not in config:
+            errors.append("Missing required field: strategy_params")
+        else:
+            from utils import STRAT_PARAMS
+            strategy = config.get('strategy', '').lower()
+            if strategy in STRAT_PARAMS:
+                strat_param_def = STRAT_PARAMS[strategy]
+                for param_code, param_info in strat_param_def.items():
+                    if param_code not in config['strategy_params']:
+                        errors.append(f"Missing required parameter for {strategy}: {param_info['name']} ({param_code})")
+                    else:
+                        valid, error_msg, _ = validate_numeric_param(
+                            config['strategy_params'][param_code],
+                            param_info['type'],
+                            param_info.get('min'),
+                            param_info.get('max'),
+                            param_info['name']
+                        )
+                        if not valid:
+                            errors.append(f"Invalid {param_info['name']}: {error_msg}")
         return errors
 
     @staticmethod
@@ -141,17 +115,19 @@ class ConfigHandler:
             "exchange": "binance",
             "symbol": "BTCUSDT",
             "futures": False,
-            "strategy": "supertrend",
+            "strategy": "moving_average_crossover",
             "timeframe": "1h",
             "from_time": (datetime.datetime.now() - datetime.timedelta(days=30)).strftime("%Y-%m-%d"),
             "to_time": datetime.datetime.now().strftime("%Y-%m-%d"),
             "strategy_params": {
-                "atr_period": 14,
-                "atr_multiplier": 3.0,
+                "short_period": 12,
+                "long_period": 26,
                 "leverage": 1.0,
                 "commission_rate": 0.04,
                 "initial_capital": 10000.0,
-                "futures": False
+                "futures": False,
+                "stop_loss_pct": 0.02,
+                "use_stop_loss": True
             },
             "save_signals": True,
             "output_file": "backtest_results.json"

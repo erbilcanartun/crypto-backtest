@@ -1,40 +1,44 @@
 {
     "strategy": "supertrend",
     "symbol": "BTCUSDT",
-    "timeframe": "1h",
+    "timeframe": "1d",
     "exchange": "binance",
-    "from_time": 1744750800000,
-    "to_time": 1747342800000,
+    "from_time": 1673816400000,
+    "to_time": 1705352400000,
     "params": {
         "atr_period": 10,
-        "atr_multiplier": 2.0,
+        "atr_multiplier": 1.5,
         "leverage": 1.0,
-        "commission_rate": 0.04,
-        "initial_capital": 10000.0
+        "commission_rate": 0.02,
+        "initial_capital": 10000.0,
+        "stop_loss_pct": 0.02,
+        "use_stop_loss": false
     },
     "config": {
         "exchange": "binance",
         "symbol": "BTCUSDT",
         "strategy": "supertrend",
-        "timeframe": "1h",
-        "from_time": 1744750800000,
-        "to_time": 1747342800000,
+        "timeframe": "1d",
+        "from_time": 1673816400000,
+        "to_time": 1705352400000,
         "strategy_params": {
             "atr_period": 10,
-            "atr_multiplier": 2.0,
+            "atr_multiplier": 1.5,
             "leverage": 1.0,
-            "commission_rate": 0.04,
+            "commission_rate": 0.02,
             "initial_capital": 10000.0,
+            "stop_loss_pct": 0.02,
+            "use_stop_loss": false,
             "futures": false
         },
         "save_signals": true
     },
-    "total_return": 15.944207819189193,
-    "max_drawdown": 0.0,
-    "total_trades": 2,
-    "win_rate": 100.0,
-    "sharpe_ratio": 8.284237803454248,
-    "final_capital": 11594.42078191892,
-    "signals_file": "supertrend_BTCUSDT_1h_signals.csv",
-    "indicators_file": "supertrend_BTCUSDT_1h_indicators.csv"
+    "total_return": 10.674105461159906,
+    "max_drawdown": 0.18222337577455414,
+    "total_trades": 18,
+    "win_rate": 27.77777777777778,
+    "sharpe_ratio": 0.056723503244798405,
+    "final_capital": 11067.41054611599,
+    "signals_file": "supertrend_BTCUSDT_1d_signals.csv",
+    "indicators_file": "supertrend_BTCUSDT_1d_indicators.csv"
 }

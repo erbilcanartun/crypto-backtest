@@ -25,8 +25,10 @@ class StrategyFactory:
             try:
                 from strategies.supertrend import SupertrendStrategy
                 cls.register_strategy("supertrend", SupertrendStrategy)
+                from strategies.moving_average_crossover import MovingAverageCrossoverStrategy
+                cls.register_strategy("moving_average_crossover", MovingAverageCrossoverStrategy)
             except ImportError as e:
-                logger.error(f"Could not import SupertrendStrategy: {str(e)}")
+                logger.error(f"Could not import strategies: {str(e)}")
                 raise ValueError(f"Strategy not found: {name}")
 
         strategy_class = cls._strategies[name]
@@ -43,4 +45,10 @@ class StrategyFactory:
                 cls.register_strategy("supertrend", SupertrendStrategy)
             except ImportError:
                 pass
-        return list(cls._strategies.keys()) or ["supertrend"]
+        if "moving_average_crossover" not in cls._strategies:
+            try:
+                from strategies.moving_average_crossover import MovingAverageCrossoverStrategy
+                cls.register_strategy("moving_average_crossover", MovingAverageCrossoverStrategy)
+            except ImportError:
+                pass
+        return list(cls._strategies.keys()) or ["supertrend", "moving_average_crossover"]
