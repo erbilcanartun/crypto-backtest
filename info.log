@@ -9393,3 +9393,1067 @@ ValueError: Strategy not found: moving_average_crossover
 2025-08-22 01:03:06,963 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
 2025-08-22 01:03:07,373 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1735410720000 HTTP/1.1" 200 48554
 2025-08-22 01:03:07,467 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-12-28 01:53:00 to 2024-12-28 18:32:00
+2025-08-22 11:22:45,150 INFO :: Loaded configuration from data_config.json
+2025-08-22 11:22:45,167 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:22:45,704 DEBUG :: https://api.binance.com:443 "GET /api/v3/exchangeInfo HTTP/1.1" 200 263571
+2025-08-22 11:22:46,350 INFO :: Collecting data for BTCUSDT on binance
+2025-08-22 11:22:46,453 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:22:46,993 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&startTime=1755813720000 HTTP/1.1" 200 30193
+2025-08-22 11:22:47,029 INFO :: binance BTCUSDT: Collected 620 recent candles from 2025-08-21 22:02:00 to 2025-08-22 08:21:00
+2025-08-22 11:22:48,137 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:22:48,596 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&startTime=1755850920000 HTTP/1.1" 200 174
+2025-08-22 11:22:48,714 INFO :: Wrote 620 rows to spot/BTCUSDT/1m
+2025-08-22 11:22:48,715 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:22:49,196 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1735950720000 HTTP/1.1" 200 50020
+2025-08-22 11:22:49,359 INFO :: binance BTCUSDT: Collected 1000 older candles from 2025-01-03 07:53:00 to 2025-01-04 00:32:00
+2025-08-22 11:22:50,468 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:22:51,031 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1735890720000 HTTP/1.1" 200 50138
+2025-08-22 11:22:51,108 INFO :: binance BTCUSDT: Collected 1000 older candles from 2025-01-02 15:13:00 to 2025-01-03 07:52:00
+2025-08-22 11:22:52,216 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:22:52,664 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1735830720000 HTTP/1.1" 200 50244
+2025-08-22 11:22:52,817 INFO :: binance BTCUSDT: Collected 1000 older candles from 2025-01-01 22:33:00 to 2025-01-02 15:12:00
+2025-08-22 11:22:53,925 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:22:54,295 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1735770720000 HTTP/1.1" 200 48756
+2025-08-22 11:22:54,364 INFO :: binance BTCUSDT: Collected 1000 older candles from 2025-01-01 05:53:00 to 2025-01-01 22:32:00
+2025-08-22 11:22:55,472 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:22:56,039 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1735710720000 HTTP/1.1" 200 50164
+2025-08-22 11:22:56,160 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-12-31 13:13:00 to 2025-01-01 05:52:00
+2025-08-22 11:22:57,265 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:22:57,736 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1735650720000 HTTP/1.1" 200 50833
+2025-08-22 11:22:57,858 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-12-30 20:33:00 to 2024-12-31 13:12:00
+2025-08-22 11:22:58,967 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:22:59,501 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1735590720000 HTTP/1.1" 200 51607
+2025-08-22 11:22:59,612 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-12-30 03:53:00 to 2024-12-30 20:32:00
+2025-08-22 11:23:00,721 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:23:01,257 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1735530720000 HTTP/1.1" 200 50169
+2025-08-22 11:23:01,376 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-12-29 11:13:00 to 2024-12-30 03:52:00
+2025-08-22 11:23:02,483 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:23:03,104 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1735470720000 HTTP/1.1" 200 47149
+2025-08-22 11:23:03,224 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-12-28 18:33:00 to 2024-12-29 11:12:00
+2025-08-22 11:23:04,332 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:23:04,685 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1735410720000 HTTP/1.1" 200 48554
+2025-08-22 11:23:04,740 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-12-28 01:53:00 to 2024-12-28 18:32:00
+2025-08-22 11:23:05,848 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:23:06,217 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1735350720000 HTTP/1.1" 200 51267
+2025-08-22 11:23:06,416 INFO :: Wrote 11000 rows to spot/BTCUSDT/1m
+2025-08-22 11:23:06,416 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-12-27 09:13:00 to 2024-12-28 01:52:00
+2025-08-22 11:23:07,524 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:23:07,997 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1735290720000 HTTP/1.1" 200 50823
+2025-08-22 11:23:08,093 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-12-26 16:33:00 to 2024-12-27 09:12:00
+2025-08-22 11:23:09,197 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:23:10,085 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1735230720000 HTTP/1.1" 200 51436
+2025-08-22 11:23:10,345 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-12-25 23:53:00 to 2024-12-26 16:32:00
+2025-08-22 11:23:11,454 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:23:11,954 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1735170720000 HTTP/1.1" 200 50271
+2025-08-22 11:23:12,101 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-12-25 07:13:00 to 2024-12-25 23:52:00
+2025-08-22 11:23:13,209 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:23:13,707 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1735110720000 HTTP/1.1" 200 51103
+2025-08-22 11:23:13,767 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-12-24 14:33:00 to 2024-12-25 07:12:00
+2025-08-22 11:23:14,874 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:23:15,291 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1735050720000 HTTP/1.1" 200 50590
+2025-08-22 11:23:15,366 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-12-23 21:53:00 to 2024-12-24 14:32:00
+2025-08-22 11:23:16,473 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:23:16,834 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1734990720000 HTTP/1.1" 200 52099
+2025-08-22 11:23:16,873 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-12-23 05:13:00 to 2024-12-23 21:52:00
+2025-08-22 11:23:17,982 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:23:18,459 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1734930720000 HTTP/1.1" 200 51968
+2025-08-22 11:23:18,504 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-12-22 12:33:00 to 2024-12-23 05:12:00
+2025-08-22 11:23:19,612 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:23:20,474 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1734870720000 HTTP/1.1" 200 50143
+2025-08-22 11:23:20,599 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-12-21 19:53:00 to 2024-12-22 12:32:00
+2025-08-22 11:23:21,706 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:23:22,146 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1734810720000 HTTP/1.1" 200 51275
+2025-08-22 11:23:22,275 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-12-21 03:13:00 to 2024-12-21 19:52:00
+2025-08-22 11:23:23,384 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:23:23,800 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1734750720000 HTTP/1.1" 200 52697
+2025-08-22 11:23:24,044 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-12-20 10:33:00 to 2024-12-21 03:12:00
+2025-08-22 11:23:25,153 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:23:25,647 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1734690720000 HTTP/1.1" 200 53718
+2025-08-22 11:23:25,830 INFO :: Wrote 11000 rows to spot/BTCUSDT/1m
+2025-08-22 11:23:25,830 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-12-19 17:53:00 to 2024-12-20 10:32:00
+2025-08-22 11:23:26,939 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:23:27,512 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1734630720000 HTTP/1.1" 200 52491
+2025-08-22 11:23:27,641 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-12-19 01:13:00 to 2024-12-19 17:52:00
+2025-08-22 11:23:28,745 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:23:29,379 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1734570720000 HTTP/1.1" 200 52756
+2025-08-22 11:23:29,511 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-12-18 08:33:00 to 2024-12-19 01:12:00
+2025-08-22 11:23:30,619 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:23:31,106 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1734510720000 HTTP/1.1" 200 52152
+2025-08-22 11:23:31,198 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-12-17 15:53:00 to 2024-12-18 08:32:00
+2025-08-22 11:23:32,306 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:23:32,770 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1734450720000 HTTP/1.1" 200 50946
+2025-08-22 11:23:32,868 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-12-16 23:13:00 to 2024-12-17 15:52:00
+2025-08-22 11:23:33,973 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:23:34,447 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1734390720000 HTTP/1.1" 200 52132
+2025-08-22 11:23:34,606 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-12-16 06:33:00 to 2024-12-16 23:12:00
+2025-08-22 11:23:35,714 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:23:36,071 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1734330720000 HTTP/1.1" 200 51064
+2025-08-22 11:23:36,149 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-12-15 13:53:00 to 2024-12-16 06:32:00
+2025-08-22 11:23:37,256 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:23:37,793 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1734270720000 HTTP/1.1" 200 49468
+2025-08-22 11:23:37,866 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-12-14 21:13:00 to 2024-12-15 13:52:00
+2025-08-22 11:23:38,971 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:23:39,475 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1734210720000 HTTP/1.1" 200 48780
+2025-08-22 11:23:39,557 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-12-14 04:33:00 to 2024-12-14 21:12:00
+2025-08-22 11:23:40,664 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:23:41,350 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1734150720000 HTTP/1.1" 200 51000
+2025-08-22 11:23:41,447 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-12-13 11:53:00 to 2024-12-14 04:32:00
+2025-08-22 11:23:42,556 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:23:43,071 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1734090720000 HTTP/1.1" 200 50528
+2025-08-22 11:23:43,157 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-12-12 19:13:00 to 2024-12-13 11:52:00
+2025-08-22 11:23:44,265 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:23:44,757 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1734030720000 HTTP/1.1" 200 51134
+2025-08-22 11:23:44,994 INFO :: Wrote 11000 rows to spot/BTCUSDT/1m
+2025-08-22 11:23:44,994 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-12-12 02:33:00 to 2024-12-12 19:12:00
+2025-08-22 11:23:46,103 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:23:46,615 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1733970720000 HTTP/1.1" 200 51977
+2025-08-22 11:23:46,697 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-12-11 09:53:00 to 2024-12-12 02:32:00
+2025-08-22 11:23:47,806 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:23:48,274 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1733910720000 HTTP/1.1" 200 52164
+2025-08-22 11:23:48,360 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-12-10 17:13:00 to 2024-12-11 09:52:00
+2025-08-22 11:23:49,468 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:23:49,946 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1733850720000 HTTP/1.1" 200 52416
+2025-08-22 11:23:50,055 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-12-10 00:33:00 to 2024-12-10 17:12:00
+2025-08-22 11:23:51,164 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:23:51,572 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1733790720000 HTTP/1.1" 200 52830
+2025-08-22 11:23:51,650 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-12-09 07:53:00 to 2024-12-10 00:32:00
+2025-08-22 11:23:52,758 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:23:53,197 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1733730720000 HTTP/1.1" 200 50497
+2025-08-22 11:23:53,359 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-12-08 15:13:00 to 2024-12-09 07:52:00
+2025-08-22 11:23:54,467 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:23:54,919 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1733670720000 HTTP/1.1" 200 49507
+2025-08-22 11:23:55,001 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-12-07 22:33:00 to 2024-12-08 15:12:00
+2025-08-22 11:23:56,109 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:23:56,545 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1733610720000 HTTP/1.1" 200 49166
+2025-08-22 11:23:56,623 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-12-07 05:53:00 to 2024-12-07 22:32:00
+2025-08-22 11:23:57,729 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:23:58,080 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1733550720000 HTTP/1.1" 200 51690
+2025-08-22 11:23:58,190 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-12-06 13:13:00 to 2024-12-07 05:52:00
+2025-08-22 11:23:59,297 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:23:59,877 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1733490720000 HTTP/1.1" 200 52395
+2025-08-22 11:23:59,974 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-12-05 20:33:00 to 2024-12-06 13:12:00
+2025-08-22 11:24:01,082 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:24:01,687 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1733430720000 HTTP/1.1" 200 53032
+2025-08-22 11:24:01,823 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-12-05 03:53:00 to 2024-12-05 20:32:00
+2025-08-22 11:24:02,931 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:24:03,314 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1733370720000 HTTP/1.1" 200 52946
+2025-08-22 11:24:03,546 INFO :: Wrote 11000 rows to spot/BTCUSDT/1m
+2025-08-22 11:24:03,547 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-12-04 11:13:00 to 2024-12-05 03:52:00
+2025-08-22 11:24:04,655 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:24:05,248 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1733310720000 HTTP/1.1" 200 50350
+2025-08-22 11:24:05,343 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-12-03 18:33:00 to 2024-12-04 11:12:00
+2025-08-22 11:24:06,448 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:24:06,954 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1733250720000 HTTP/1.1" 200 50951
+2025-08-22 11:24:07,064 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-12-03 01:53:00 to 2024-12-03 18:32:00
+2025-08-22 11:24:08,173 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:24:08,560 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1733190720000 HTTP/1.1" 200 51831
+2025-08-22 11:24:08,710 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-12-02 09:13:00 to 2024-12-03 01:52:00
+2025-08-22 11:24:09,818 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:24:10,185 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1733130720000 HTTP/1.1" 200 50518
+2025-08-22 11:24:10,283 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-12-01 16:33:00 to 2024-12-02 09:12:00
+2025-08-22 11:24:11,389 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:24:11,792 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1733070720000 HTTP/1.1" 200 49060
+2025-08-22 11:24:11,919 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-11-30 23:53:00 to 2024-12-01 16:32:00
+2025-08-22 11:24:13,027 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:24:13,522 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1733010720000 HTTP/1.1" 200 48261
+2025-08-22 11:24:13,605 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-11-30 07:13:00 to 2024-11-30 23:52:00
+2025-08-22 11:24:14,714 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:24:15,285 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1732950720000 HTTP/1.1" 200 50569
+2025-08-22 11:24:15,396 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-11-29 14:33:00 to 2024-11-30 07:12:00
+2025-08-22 11:24:16,505 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:24:16,956 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1732890720000 HTTP/1.1" 200 50530
+2025-08-22 11:24:17,055 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-11-28 21:53:00 to 2024-11-29 14:32:00
+2025-08-22 11:24:18,163 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:24:18,607 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1732830720000 HTTP/1.1" 200 50949
+2025-08-22 11:24:18,737 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-11-28 05:13:00 to 2024-11-28 21:52:00
+2025-08-22 11:24:19,845 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:24:20,359 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1732770720000 HTTP/1.1" 200 52156
+2025-08-22 11:24:20,448 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-11-27 12:33:00 to 2024-11-28 05:12:00
+2025-08-22 11:24:21,556 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:24:22,068 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1732710720000 HTTP/1.1" 200 51730
+2025-08-22 11:24:22,279 INFO :: Wrote 11000 rows to spot/BTCUSDT/1m
+2025-08-22 11:24:22,279 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-11-26 19:53:00 to 2024-11-27 12:32:00
+2025-08-22 11:24:23,388 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:24:23,890 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1732650720000 HTTP/1.1" 200 52678
+2025-08-22 11:24:24,034 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-11-26 03:13:00 to 2024-11-26 19:52:00
+2025-08-22 11:24:25,137 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:24:25,703 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1732590720000 HTTP/1.1" 200 52714
+2025-08-22 11:24:25,773 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-11-25 10:33:00 to 2024-11-26 03:12:00
+2025-08-22 11:24:26,882 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:24:27,349 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1732530720000 HTTP/1.1" 200 50804
+2025-08-22 11:24:27,606 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-11-24 17:53:00 to 2024-11-25 10:32:00
+2025-08-22 11:24:28,714 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:24:29,196 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1732470720000 HTTP/1.1" 200 50322
+2025-08-22 11:24:29,308 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-11-24 01:13:00 to 2024-11-24 17:52:00
+2025-08-22 11:24:30,413 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:24:30,859 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1732410720000 HTTP/1.1" 200 49373
+2025-08-22 11:24:30,937 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-11-23 08:33:00 to 2024-11-24 01:12:00
+2025-08-22 11:24:32,046 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:24:32,579 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1732350720000 HTTP/1.1" 200 50532
+2025-08-22 11:24:32,689 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-11-22 15:53:00 to 2024-11-23 08:32:00
+2025-08-22 11:24:33,798 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:24:34,353 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1732290720000 HTTP/1.1" 200 51730
+2025-08-22 11:24:34,461 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-11-21 23:13:00 to 2024-11-22 15:52:00
+2025-08-22 11:24:35,570 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:24:36,101 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1732230720000 HTTP/1.1" 200 52470
+2025-08-22 11:24:36,201 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-11-21 06:33:00 to 2024-11-21 23:12:00
+2025-08-22 11:24:37,308 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:24:37,800 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1732170720000 HTTP/1.1" 200 52246
+2025-08-22 11:24:37,879 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-11-20 13:53:00 to 2024-11-21 06:32:00
+2025-08-22 11:24:38,983 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:24:39,496 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1732110720000 HTTP/1.1" 200 51098
+2025-08-22 11:24:39,573 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-11-19 21:13:00 to 2024-11-20 13:52:00
+2025-08-22 11:24:40,681 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:24:41,350 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1732050720000 HTTP/1.1" 200 51814
+2025-08-22 11:24:41,601 INFO :: Wrote 11000 rows to spot/BTCUSDT/1m
+2025-08-22 11:24:41,601 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-11-19 04:33:00 to 2024-11-19 21:12:00
+2025-08-22 11:24:42,710 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:24:43,212 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1731990720000 HTTP/1.1" 200 52230
+2025-08-22 11:24:43,368 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-11-18 11:53:00 to 2024-11-19 04:32:00
+2025-08-22 11:24:44,472 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:24:45,037 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1731930720000 HTTP/1.1" 200 50732
+2025-08-22 11:24:45,151 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-11-17 19:13:00 to 2024-11-18 11:52:00
+2025-08-22 11:24:46,259 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:24:46,868 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1731870720000 HTTP/1.1" 200 50533
+2025-08-22 11:24:46,922 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-11-17 02:33:00 to 2024-11-17 19:12:00
+2025-08-22 11:24:48,030 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:24:48,486 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1731810720000 HTTP/1.1" 200 50483
+2025-08-22 11:24:48,596 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-11-16 09:53:00 to 2024-11-17 02:32:00
+2025-08-22 11:24:49,704 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:24:50,157 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1731750720000 HTTP/1.1" 200 51111
+2025-08-22 11:24:50,282 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-11-15 17:13:00 to 2024-11-16 09:52:00
+2025-08-22 11:24:51,389 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:24:51,789 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1731690720000 HTTP/1.1" 200 52564
+2025-08-22 11:24:51,890 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-11-15 00:33:00 to 2024-11-15 17:12:00
+2025-08-22 11:24:52,999 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:24:53,531 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1731630720000 HTTP/1.1" 200 53070
+2025-08-22 11:24:53,637 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-11-14 07:53:00 to 2024-11-15 00:32:00
+2025-08-22 11:24:54,743 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:24:55,250 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1731570720000 HTTP/1.1" 200 53298
+2025-08-22 11:24:55,401 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-11-13 15:13:00 to 2024-11-14 07:52:00
+2025-08-22 11:24:56,505 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:24:56,939 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1731510720000 HTTP/1.1" 200 52562
+2025-08-22 11:24:56,973 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-11-12 22:33:00 to 2024-11-13 15:12:00
+2025-08-22 11:24:58,081 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:24:58,475 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1731450720000 HTTP/1.1" 200 53499
+2025-08-22 11:24:58,526 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-11-12 05:53:00 to 2024-11-12 22:32:00
+2025-08-22 11:24:59,634 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:25:00,263 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1731390720000 HTTP/1.1" 200 53938
+2025-08-22 11:25:00,421 INFO :: Wrote 11000 rows to spot/BTCUSDT/1m
+2025-08-22 11:25:00,422 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-11-11 13:13:00 to 2024-11-12 05:52:00
+2025-08-22 11:25:01,530 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:25:01,989 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1731330720000 HTTP/1.1" 200 51852
+2025-08-22 11:25:02,094 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-11-10 20:33:00 to 2024-11-11 13:12:00
+2025-08-22 11:25:03,202 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:25:03,617 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1731270720000 HTTP/1.1" 200 51492
+2025-08-22 11:25:03,747 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-11-10 03:53:00 to 2024-11-10 20:32:00
+2025-08-22 11:25:04,854 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:25:05,339 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1731210720000 HTTP/1.1" 200 48519
+2025-08-22 11:25:05,363 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-11-09 11:13:00 to 2024-11-10 03:52:00
+2025-08-22 11:25:06,472 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:25:06,954 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1731150720000 HTTP/1.1" 200 49011
+2025-08-22 11:25:06,981 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-11-08 18:33:00 to 2024-11-09 11:12:00
+2025-08-22 11:25:08,089 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:25:08,578 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1731090720000 HTTP/1.1" 200 50205
+2025-08-22 11:25:08,604 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-11-08 01:53:00 to 2024-11-08 18:32:00
+2025-08-22 11:25:09,712 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:25:10,113 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1731030720000 HTTP/1.1" 200 51150
+2025-08-22 11:25:10,146 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-11-07 09:13:00 to 2024-11-08 01:52:00
+2025-08-22 11:25:11,254 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:25:11,653 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1730970720000 HTTP/1.1" 200 51147
+2025-08-22 11:25:11,832 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-11-06 16:33:00 to 2024-11-07 09:12:00
+2025-08-22 11:25:12,941 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:25:13,425 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1730910720000 HTTP/1.1" 200 53520
+2025-08-22 11:25:13,480 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-11-05 23:53:00 to 2024-11-06 16:32:00
+2025-08-22 11:25:14,589 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:25:15,028 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1730850720000 HTTP/1.1" 200 50452
+2025-08-22 11:25:15,075 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-11-05 07:13:00 to 2024-11-05 23:52:00
+2025-08-22 11:25:16,183 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:25:16,652 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1730790720000 HTTP/1.1" 200 50288
+2025-08-22 11:25:16,686 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-11-04 14:33:00 to 2024-11-05 07:12:00
+2025-08-22 11:25:17,794 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:25:18,109 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1730730720000 HTTP/1.1" 200 49581
+2025-08-22 11:25:18,279 INFO :: Wrote 11000 rows to spot/BTCUSDT/1m
+2025-08-22 11:25:18,279 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-11-03 21:53:00 to 2024-11-04 14:32:00
+2025-08-22 11:25:19,387 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:25:19,805 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1730670720000 HTTP/1.1" 200 49731
+2025-08-22 11:25:19,854 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-11-03 05:13:00 to 2024-11-03 21:52:00
+2025-08-22 11:25:20,963 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:25:21,292 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1730610720000 HTTP/1.1" 200 48165
+2025-08-22 11:25:21,307 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-11-02 12:33:00 to 2024-11-03 05:12:00
+2025-08-22 11:25:22,415 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:25:22,863 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1730550720000 HTTP/1.1" 200 47367
+2025-08-22 11:25:22,890 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-11-01 19:53:00 to 2024-11-02 12:32:00
+2025-08-22 11:25:23,996 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:25:24,304 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1730490720000 HTTP/1.1" 200 50519
+2025-08-22 11:25:24,738 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-11-01 03:13:00 to 2024-11-01 19:52:00
+2025-08-22 11:25:25,846 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:25:26,246 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1730430720000 HTTP/1.1" 200 50853
+2025-08-22 11:25:26,274 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-10-31 10:33:00 to 2024-11-01 03:12:00
+2025-08-22 11:25:27,382 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:25:27,734 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1730370720000 HTTP/1.1" 200 48837
+2025-08-22 11:25:27,788 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-10-30 17:53:00 to 2024-10-31 10:32:00
+2025-08-22 11:25:28,892 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:25:29,365 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1730310720000 HTTP/1.1" 200 50131
+2025-08-22 11:25:29,395 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-10-30 01:13:00 to 2024-10-30 17:52:00
+2025-08-22 11:25:30,503 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:25:30,829 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1730250720000 HTTP/1.1" 200 51186
+2025-08-22 11:25:30,857 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-10-29 08:33:00 to 2024-10-30 01:12:00
+2025-08-22 11:25:31,966 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:25:32,435 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1730190720000 HTTP/1.1" 200 50970
+2025-08-22 11:25:32,465 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-10-28 15:53:00 to 2024-10-29 08:32:00
+2025-08-22 11:25:33,574 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:25:33,972 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1730130720000 HTTP/1.1" 200 49319
+2025-08-22 11:25:34,019 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-10-27 23:13:00 to 2024-10-28 15:52:00
+2025-08-22 11:25:35,122 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:25:36,019 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1730070720000 HTTP/1.1" 200 46473
+2025-08-22 11:25:36,572 INFO :: Wrote 11000 rows to spot/BTCUSDT/1m
+2025-08-22 11:25:36,573 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-10-27 06:33:00 to 2024-10-27 23:12:00
+2025-08-22 11:25:37,681 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:25:38,143 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1730010720000 HTTP/1.1" 200 46176
+2025-08-22 11:25:38,176 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-10-26 13:53:00 to 2024-10-27 06:32:00
+2025-08-22 11:25:39,284 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:25:39,797 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1729950720000 HTTP/1.1" 200 48115
+2025-08-22 11:25:39,827 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-10-25 21:13:00 to 2024-10-26 13:52:00
+2025-08-22 11:25:40,935 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:25:41,409 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1729890720000 HTTP/1.1" 200 50484
+2025-08-22 11:25:41,545 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-10-25 04:33:00 to 2024-10-25 21:12:00
+2025-08-22 11:25:42,653 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:25:43,052 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1729830720000 HTTP/1.1" 200 49748
+2025-08-22 11:25:43,092 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-10-24 11:53:00 to 2024-10-25 04:32:00
+2025-08-22 11:25:44,200 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:25:44,622 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1729770720000 HTTP/1.1" 200 49099
+2025-08-22 11:25:44,663 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-10-23 19:13:00 to 2024-10-24 11:52:00
+2025-08-22 11:25:45,770 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:25:46,193 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1729710720000 HTTP/1.1" 200 49819
+2025-08-22 11:25:46,223 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-10-23 02:33:00 to 2024-10-23 19:12:00
+2025-08-22 11:25:47,331 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:25:47,794 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1729650720000 HTTP/1.1" 200 49399
+2025-08-22 11:25:47,845 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-10-22 09:53:00 to 2024-10-23 02:32:00
+2025-08-22 11:25:48,954 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:25:49,331 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1729590720000 HTTP/1.1" 200 49164
+2025-08-22 11:25:49,359 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-10-21 17:13:00 to 2024-10-22 09:52:00
+2025-08-22 11:25:50,463 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:25:50,810 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1729530720000 HTTP/1.1" 200 49868
+2025-08-22 11:25:50,838 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-10-21 00:33:00 to 2024-10-21 17:12:00
+2025-08-22 11:25:51,945 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:25:52,285 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1729470720000 HTTP/1.1" 200 46246
+2025-08-22 11:25:52,383 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-10-20 07:53:00 to 2024-10-21 00:32:00
+2025-08-22 11:25:53,488 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:25:53,818 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1729410720000 HTTP/1.1" 200 44582
+2025-08-22 11:25:54,006 INFO :: Wrote 11000 rows to spot/BTCUSDT/1m
+2025-08-22 11:25:54,007 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-10-19 15:13:00 to 2024-10-20 07:52:00
+2025-08-22 11:25:55,113 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:25:55,414 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1729350720000 HTTP/1.1" 200 45602
+2025-08-22 11:25:55,441 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-10-18 22:33:00 to 2024-10-19 15:12:00
+2025-08-22 11:25:56,543 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:25:57,015 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1729290720000 HTTP/1.1" 200 49847
+2025-08-22 11:25:57,058 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-10-18 05:53:00 to 2024-10-18 22:32:00
+2025-08-22 11:25:58,162 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:25:58,472 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1729230720000 HTTP/1.1" 200 49863
+2025-08-22 11:25:58,502 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-10-17 13:13:00 to 2024-10-18 05:52:00
+2025-08-22 11:25:59,606 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:25:59,905 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1729170720000 HTTP/1.1" 200 49207
+2025-08-22 11:25:59,940 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-10-16 20:33:00 to 2024-10-17 13:12:00
+2025-08-22 11:26:01,044 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:26:01,495 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1729110720000 HTTP/1.1" 200 50511
+2025-08-22 11:26:01,527 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-10-16 03:53:00 to 2024-10-16 20:32:00
+2025-08-22 11:26:02,631 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:26:03,029 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1729050720000 HTTP/1.1" 200 51144
+2025-08-22 11:26:03,055 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-10-15 11:13:00 to 2024-10-16 03:52:00
+2025-08-22 11:26:04,162 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:26:04,531 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1728990720000 HTTP/1.1" 200 49123
+2025-08-22 11:26:04,552 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-10-14 18:33:00 to 2024-10-15 11:12:00
+2025-08-22 11:26:05,655 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:26:06,034 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1728930720000 HTTP/1.1" 200 50662
+2025-08-22 11:26:06,057 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-10-14 01:53:00 to 2024-10-14 18:32:00
+2025-08-22 11:26:07,162 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:26:07,459 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1728870720000 HTTP/1.1" 200 48064
+2025-08-22 11:26:07,508 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-10-13 09:13:00 to 2024-10-14 01:52:00
+2025-08-22 11:26:08,613 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:26:09,028 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1728810720000 HTTP/1.1" 200 46255
+2025-08-22 11:26:09,058 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-10-12 16:33:00 to 2024-10-13 09:12:00
+2025-08-22 11:26:10,163 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:26:10,487 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1728750720000 HTTP/1.1" 200 47205
+2025-08-22 11:26:10,666 INFO :: Wrote 11000 rows to spot/BTCUSDT/1m
+2025-08-22 11:26:10,667 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-10-11 23:53:00 to 2024-10-12 16:32:00
+2025-08-22 11:26:11,774 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:26:12,173 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1728690720000 HTTP/1.1" 200 49641
+2025-08-22 11:26:12,193 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-10-11 07:13:00 to 2024-10-11 23:52:00
+2025-08-22 11:26:13,298 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:26:13,607 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1728630720000 HTTP/1.1" 200 49287
+2025-08-22 11:26:13,630 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-10-10 14:33:00 to 2024-10-11 07:12:00
+2025-08-22 11:26:14,736 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:26:15,254 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1728570720000 HTTP/1.1" 200 48492
+2025-08-22 11:26:15,284 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-10-09 21:53:00 to 2024-10-10 14:32:00
+2025-08-22 11:26:16,388 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:26:16,876 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1728510720000 HTTP/1.1" 200 49281
+2025-08-22 11:26:16,895 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-10-09 05:13:00 to 2024-10-09 21:52:00
+2025-08-22 11:26:18,003 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:26:18,414 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1728450720000 HTTP/1.1" 200 48950
+2025-08-22 11:26:18,433 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-10-08 12:33:00 to 2024-10-09 05:12:00
+2025-08-22 11:26:19,538 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:26:20,084 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1728390720000 HTTP/1.1" 200 48838
+2025-08-22 11:26:20,200 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-10-07 19:53:00 to 2024-10-08 12:32:00
+2025-08-22 11:26:21,308 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:26:21,933 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1728330720000 HTTP/1.1" 200 49531
+2025-08-22 11:26:22,154 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-10-07 03:13:00 to 2024-10-07 19:52:00
+2025-08-22 11:26:23,262 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:26:23,620 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1728270720000 HTTP/1.1" 200 47802
+2025-08-22 11:26:23,700 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-10-06 10:33:00 to 2024-10-07 03:12:00
+2025-08-22 11:26:24,807 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:26:25,180 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1728210720000 HTTP/1.1" 200 44812
+2025-08-22 11:26:25,216 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-10-05 17:53:00 to 2024-10-06 10:32:00
+2025-08-22 11:26:26,323 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:26:26,891 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1728150720000 HTTP/1.1" 200 45640
+2025-08-22 11:26:26,927 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-10-05 01:13:00 to 2024-10-05 17:52:00
+2025-08-22 11:26:28,036 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:26:28,453 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1728090720000 HTTP/1.1" 200 49113
+2025-08-22 11:26:28,649 INFO :: Wrote 11000 rows to spot/BTCUSDT/1m
+2025-08-22 11:26:28,650 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-10-04 08:33:00 to 2024-10-05 01:12:00
+2025-08-22 11:26:29,758 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:26:30,077 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1728030720000 HTTP/1.1" 200 48915
+2025-08-22 11:26:30,594 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-10-03 15:53:00 to 2024-10-04 08:32:00
+2025-08-22 11:26:31,698 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:26:32,178 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1727970720000 HTTP/1.1" 200 50070
+2025-08-22 11:26:32,204 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-10-02 23:13:00 to 2024-10-03 15:52:00
+2025-08-22 11:26:33,312 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:26:33,695 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1727910720000 HTTP/1.1" 200 50429
+2025-08-22 11:26:33,738 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-10-02 06:33:00 to 2024-10-02 23:12:00
+2025-08-22 11:26:34,845 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:26:35,142 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1727850720000 HTTP/1.1" 200 50958
+2025-08-22 11:26:35,168 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-10-01 13:53:00 to 2024-10-02 06:32:00
+2025-08-22 11:26:36,276 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:26:36,655 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1727790720000 HTTP/1.1" 200 48936
+2025-08-22 11:26:36,674 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-09-30 21:13:00 to 2024-10-01 13:52:00
+2025-08-22 11:26:37,783 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:26:38,093 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1727730720000 HTTP/1.1" 200 49739
+2025-08-22 11:26:38,115 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-09-30 04:33:00 to 2024-09-30 21:12:00
+2025-08-22 11:26:39,222 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:26:39,609 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1727670720000 HTTP/1.1" 200 47739
+2025-08-22 11:26:39,630 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-09-29 11:53:00 to 2024-09-30 04:32:00
+2025-08-22 11:26:40,737 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:26:41,057 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1727610720000 HTTP/1.1" 200 44935
+2025-08-22 11:26:41,078 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-09-28 19:13:00 to 2024-09-29 11:52:00
+2025-08-22 11:26:42,185 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:26:42,483 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1727550720000 HTTP/1.1" 200 46200
+2025-08-22 11:26:42,510 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-09-28 02:33:00 to 2024-09-28 19:12:00
+2025-08-22 11:26:43,618 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:26:43,921 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1727490720000 HTTP/1.1" 200 48915
+2025-08-22 11:26:43,947 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-09-27 09:53:00 to 2024-09-28 02:32:00
+2025-08-22 11:26:45,054 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:26:45,535 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1727430720000 HTTP/1.1" 200 49316
+2025-08-22 11:26:45,765 INFO :: Wrote 11000 rows to spot/BTCUSDT/1m
+2025-08-22 11:26:45,766 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-09-26 17:13:00 to 2024-09-27 09:52:00
+2025-08-22 11:26:46,873 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:26:47,294 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1727370720000 HTTP/1.1" 200 49944
+2025-08-22 11:26:47,344 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-09-26 00:33:00 to 2024-09-26 17:12:00
+2025-08-22 11:26:48,453 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:26:48,882 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1727310720000 HTTP/1.1" 200 49042
+2025-08-22 11:26:48,937 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-09-25 07:53:00 to 2024-09-26 00:32:00
+2025-08-22 11:26:50,045 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:26:50,507 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1727250720000 HTTP/1.1" 200 49315
+2025-08-22 11:26:50,552 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-09-24 15:13:00 to 2024-09-25 07:52:00
+2025-08-22 11:26:51,660 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:26:52,033 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1727190720000 HTTP/1.1" 200 49138
+2025-08-22 11:26:52,087 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-09-23 22:33:00 to 2024-09-24 15:12:00
+2025-08-22 11:26:53,196 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:26:53,567 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1727130720000 HTTP/1.1" 200 49770
+2025-08-22 11:26:53,618 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-09-23 05:53:00 to 2024-09-23 22:32:00
+2025-08-22 11:26:54,726 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:26:55,035 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1727070720000 HTTP/1.1" 200 49480
+2025-08-22 11:26:55,079 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-09-22 13:13:00 to 2024-09-23 05:52:00
+2025-08-22 11:26:56,188 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:26:56,491 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1727010720000 HTTP/1.1" 200 46558
+2025-08-22 11:26:56,542 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-09-21 20:33:00 to 2024-09-22 13:12:00
+2025-08-22 11:26:57,650 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:26:57,947 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1726950720000 HTTP/1.1" 200 45706
+2025-08-22 11:26:57,982 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-09-21 03:53:00 to 2024-09-21 20:32:00
+2025-08-22 11:26:59,088 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:26:59,383 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1726890720000 HTTP/1.1" 200 48905
+2025-08-22 11:26:59,416 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-09-20 11:13:00 to 2024-09-21 03:52:00
+2025-08-22 11:27:00,524 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:27:00,915 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1726830720000 HTTP/1.1" 200 49538
+2025-08-22 11:27:00,945 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-09-19 18:33:00 to 2024-09-20 11:12:00
+2025-08-22 11:27:02,053 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:27:02,373 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1726770720000 HTTP/1.1" 200 50241
+2025-08-22 11:27:02,546 INFO :: Wrote 11000 rows to spot/BTCUSDT/1m
+2025-08-22 11:27:02,547 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-09-19 01:53:00 to 2024-09-19 18:32:00
+2025-08-22 11:27:03,655 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:27:04,084 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1726710720000 HTTP/1.1" 200 51111
+2025-08-22 11:27:04,110 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-09-18 09:13:00 to 2024-09-19 01:52:00
+2025-08-22 11:27:05,215 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:27:05,677 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1726650720000 HTTP/1.1" 200 49157
+2025-08-22 11:27:05,716 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-09-17 16:33:00 to 2024-09-18 09:12:00
+2025-08-22 11:27:06,821 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:27:07,209 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1726590720000 HTTP/1.1" 200 49424
+2025-08-22 11:27:07,240 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-09-16 23:53:00 to 2024-09-17 16:32:00
+2025-08-22 11:27:08,344 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:27:08,642 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1726530720000 HTTP/1.1" 200 49426
+2025-08-22 11:27:08,677 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-09-16 07:13:00 to 2024-09-16 23:52:00
+2025-08-22 11:27:09,785 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:27:10,160 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1726470720000 HTTP/1.1" 200 49165
+2025-08-22 11:27:10,189 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-09-15 14:33:00 to 2024-09-16 07:12:00
+2025-08-22 11:27:11,298 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:27:11,612 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1726410720000 HTTP/1.1" 200 44784
+2025-08-22 11:27:11,641 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-09-14 21:53:00 to 2024-09-15 14:32:00
+2025-08-22 11:27:12,749 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:27:13,112 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1726350720000 HTTP/1.1" 200 46538
+2025-08-22 11:27:13,139 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-09-14 05:13:00 to 2024-09-14 21:52:00
+2025-08-22 11:27:14,244 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:27:14,548 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1726290720000 HTTP/1.1" 200 49729
+2025-08-22 11:27:14,567 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-09-13 12:33:00 to 2024-09-14 05:12:00
+2025-08-22 11:27:15,672 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:27:16,191 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1726230720000 HTTP/1.1" 200 48040
+2025-08-22 11:27:16,221 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-09-12 19:53:00 to 2024-09-13 12:32:00
+2025-08-22 11:27:17,330 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:27:17,703 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1726170720000 HTTP/1.1" 200 49798
+2025-08-22 11:27:17,735 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-09-12 03:13:00 to 2024-09-12 19:52:00
+2025-08-22 11:27:18,841 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:27:19,244 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1726110720000 HTTP/1.1" 200 50028
+2025-08-22 11:27:19,427 INFO :: Wrote 11000 rows to spot/BTCUSDT/1m
+2025-08-22 11:27:19,428 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-09-11 10:33:00 to 2024-09-12 03:12:00
+2025-08-22 11:27:20,536 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:27:20,947 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1726050720000 HTTP/1.1" 200 49127
+2025-08-22 11:27:20,997 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-09-10 17:53:00 to 2024-09-11 10:32:00
+2025-08-22 11:27:22,105 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:27:22,416 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1725990720000 HTTP/1.1" 200 49319
+2025-08-22 11:27:22,442 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-09-10 01:13:00 to 2024-09-10 17:52:00
+2025-08-22 11:27:23,550 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:27:24,008 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1725930720000 HTTP/1.1" 200 50011
+2025-08-22 11:27:24,033 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-09-09 08:33:00 to 2024-09-10 01:12:00
+2025-08-22 11:27:25,138 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:27:25,487 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1725870720000 HTTP/1.1" 200 49148
+2025-08-22 11:27:25,638 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-09-08 15:53:00 to 2024-09-09 08:32:00
+2025-08-22 11:27:26,746 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:27:27,048 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1725810720000 HTTP/1.1" 200 47210
+2025-08-22 11:27:27,090 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-09-07 23:13:00 to 2024-09-08 15:52:00
+2025-08-22 11:27:28,196 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:27:28,509 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1725750720000 HTTP/1.1" 200 48273
+2025-08-22 11:27:28,538 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-09-07 06:33:00 to 2024-09-07 23:12:00
+2025-08-22 11:27:29,645 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:27:29,945 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1725690720000 HTTP/1.1" 200 50438
+2025-08-22 11:27:29,982 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-09-06 13:53:00 to 2024-09-07 06:32:00
+2025-08-22 11:27:31,091 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:27:31,433 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1725630720000 HTTP/1.1" 200 49337
+2025-08-22 11:27:31,465 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-09-05 21:13:00 to 2024-09-06 13:52:00
+2025-08-22 11:27:32,570 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:27:32,901 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1725570720000 HTTP/1.1" 200 49431
+2025-08-22 11:27:32,927 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-09-05 04:33:00 to 2024-09-05 21:12:00
+2025-08-22 11:27:34,035 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:27:34,496 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1725510720000 HTTP/1.1" 200 49371
+2025-08-22 11:27:34,535 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-09-04 11:53:00 to 2024-09-05 04:32:00
+2025-08-22 11:27:35,642 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:27:36,140 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1725450720000 HTTP/1.1" 200 48900
+2025-08-22 11:27:36,348 INFO :: Wrote 11000 rows to spot/BTCUSDT/1m
+2025-08-22 11:27:36,349 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-09-03 19:13:00 to 2024-09-04 11:52:00
+2025-08-22 11:27:37,457 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:27:37,881 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1725390720000 HTTP/1.1" 200 48698
+2025-08-22 11:27:37,905 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-09-03 02:33:00 to 2024-09-03 19:12:00
+2025-08-22 11:27:39,013 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:27:39,497 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1725330720000 HTTP/1.1" 200 48646
+2025-08-22 11:27:39,529 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-09-02 09:53:00 to 2024-09-03 02:32:00
+2025-08-22 11:27:40,637 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:27:41,056 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1725270720000 HTTP/1.1" 200 48922
+2025-08-22 11:27:41,083 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-09-01 17:13:00 to 2024-09-02 09:52:00
+2025-08-22 11:27:42,192 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:27:42,509 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1725210720000 HTTP/1.1" 200 48140
+2025-08-22 11:27:42,537 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-09-01 00:33:00 to 2024-09-01 17:12:00
+2025-08-22 11:27:43,646 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:27:43,952 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1725150720000 HTTP/1.1" 200 46014
+2025-08-22 11:27:43,980 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-08-31 07:53:00 to 2024-09-01 00:32:00
+2025-08-22 11:27:45,088 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:27:45,392 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1725090720000 HTTP/1.1" 200 47793
+2025-08-22 11:27:45,422 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-08-30 15:13:00 to 2024-08-31 07:52:00
+2025-08-22 11:27:46,534 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:27:46,835 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1725030720000 HTTP/1.1" 200 49054
+2025-08-22 11:27:46,861 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-08-29 22:33:00 to 2024-08-30 15:12:00
+2025-08-22 11:27:47,972 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:27:48,637 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1724970720000 HTTP/1.1" 200 50339
+2025-08-22 11:27:48,767 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-08-29 05:53:00 to 2024-08-29 22:32:00
+2025-08-22 11:27:49,870 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:27:50,192 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1724910720000 HTTP/1.1" 200 49933
+2025-08-22 11:27:50,218 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-08-28 13:13:00 to 2024-08-29 05:52:00
+2025-08-22 11:27:51,329 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:27:51,718 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1724850720000 HTTP/1.1" 200 50732
+2025-08-22 11:27:51,742 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-08-27 20:33:00 to 2024-08-28 13:12:00
+2025-08-22 11:27:52,855 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:27:53,150 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1724790720000 HTTP/1.1" 200 49531
+2025-08-22 11:27:53,344 INFO :: Wrote 11000 rows to spot/BTCUSDT/1m
+2025-08-22 11:27:53,344 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-08-27 03:53:00 to 2024-08-27 20:32:00
+2025-08-22 11:27:54,458 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:27:54,854 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1724730720000 HTTP/1.1" 200 48916
+2025-08-22 11:27:54,886 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-08-26 11:13:00 to 2024-08-27 03:52:00
+2025-08-22 11:27:55,999 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:27:56,311 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1724670720000 HTTP/1.1" 200 47782
+2025-08-22 11:27:56,339 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-08-25 18:33:00 to 2024-08-26 11:12:00
+2025-08-22 11:27:57,446 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:27:57,844 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1724610720000 HTTP/1.1" 200 46607
+2025-08-22 11:27:57,871 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-08-25 01:53:00 to 2024-08-25 18:32:00
+2025-08-22 11:27:58,979 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:27:59,466 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1724550720000 HTTP/1.1" 200 48121
+2025-08-22 11:27:59,503 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-08-24 09:13:00 to 2024-08-25 01:52:00
+2025-08-22 11:28:00,613 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:28:00,964 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1724490720000 HTTP/1.1" 200 50571
+2025-08-22 11:28:00,993 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-08-23 16:33:00 to 2024-08-24 09:12:00
+2025-08-22 11:28:02,107 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:28:02,454 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1724430720000 HTTP/1.1" 200 49488
+2025-08-22 11:28:02,479 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-08-22 23:53:00 to 2024-08-23 16:32:00
+2025-08-22 11:28:03,588 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:28:04,043 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1724370720000 HTTP/1.1" 200 49621
+2025-08-22 11:28:04,077 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-08-22 07:13:00 to 2024-08-22 23:52:00
+2025-08-22 11:28:05,188 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:28:05,490 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1724310720000 HTTP/1.1" 200 50782
+2025-08-22 11:28:05,524 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-08-21 14:33:00 to 2024-08-22 07:12:00
+2025-08-22 11:28:06,637 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:28:07,666 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1724250720000 HTTP/1.1" 200 49058
+2025-08-22 11:28:08,025 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-08-20 21:53:00 to 2024-08-21 14:32:00
+2025-08-22 11:28:09,130 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:28:09,537 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1724190720000 HTTP/1.1" 200 50340
+2025-08-22 11:28:09,567 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-08-20 05:13:00 to 2024-08-20 21:52:00
+2025-08-22 11:28:10,679 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:28:11,067 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1724130720000 HTTP/1.1" 200 50078
+2025-08-22 11:28:11,258 INFO :: Wrote 11000 rows to spot/BTCUSDT/1m
+2025-08-22 11:28:11,258 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-08-19 12:33:00 to 2024-08-20 05:12:00
+2025-08-22 11:28:12,372 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:28:12,692 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1724070720000 HTTP/1.1" 200 49142
+2025-08-22 11:28:12,727 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-08-18 19:53:00 to 2024-08-19 12:32:00
+2025-08-22 11:28:13,838 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:28:14,333 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1724010720000 HTTP/1.1" 200 48248
+2025-08-22 11:28:14,358 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-08-18 03:13:00 to 2024-08-18 19:52:00
+2025-08-22 11:28:15,461 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:28:16,001 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1723950720000 HTTP/1.1" 200 47594
+2025-08-22 11:28:16,126 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-08-17 10:33:00 to 2024-08-18 03:12:00
+2025-08-22 11:28:17,239 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:28:18,062 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1723890720000 HTTP/1.1" 200 48779
+2025-08-22 11:28:18,069 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-08-16 17:53:00 to 2024-08-17 10:32:00
+2025-08-22 11:28:19,182 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:28:19,551 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1723830720000 HTTP/1.1" 200 50881
+2025-08-22 11:28:19,658 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-08-16 01:13:00 to 2024-08-16 17:52:00
+2025-08-22 11:28:20,770 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:28:21,273 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1723770720000 HTTP/1.1" 200 51737
+2025-08-22 11:28:21,305 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-08-15 08:33:00 to 2024-08-16 01:12:00
+2025-08-22 11:28:22,417 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:28:22,714 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1723710720000 HTTP/1.1" 200 49941
+2025-08-22 11:28:22,762 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-08-14 15:53:00 to 2024-08-15 08:32:00
+2025-08-22 11:28:23,876 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:28:24,318 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1723650720000 HTTP/1.1" 200 50017
+2025-08-22 11:28:24,347 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-08-13 23:13:00 to 2024-08-14 15:52:00
+2025-08-22 11:28:25,460 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:28:25,843 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1723590720000 HTTP/1.1" 200 50839
+2025-08-22 11:28:25,881 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-08-13 06:33:00 to 2024-08-13 23:12:00
+2025-08-22 11:28:26,989 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:28:27,376 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1723530720000 HTTP/1.1" 200 51058
+2025-08-22 11:28:27,402 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-08-12 13:53:00 to 2024-08-13 06:32:00
+2025-08-22 11:28:28,515 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:28:28,817 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1723470720000 HTTP/1.1" 200 51129
+2025-08-22 11:28:29,010 INFO :: Wrote 11000 rows to spot/BTCUSDT/1m
+2025-08-22 11:28:29,010 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-08-11 21:13:00 to 2024-08-12 13:52:00
+2025-08-22 11:28:30,124 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:28:30,531 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1723410720000 HTTP/1.1" 200 49422
+2025-08-22 11:28:30,566 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-08-11 04:33:00 to 2024-08-11 21:12:00
+2025-08-22 11:28:31,674 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:28:32,045 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1723350720000 HTTP/1.1" 200 47536
+2025-08-22 11:28:32,082 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-08-10 11:53:00 to 2024-08-11 04:32:00
+2025-08-22 11:28:33,191 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:28:33,582 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1723290720000 HTTP/1.1" 200 48725
+2025-08-22 11:28:33,609 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-08-09 19:13:00 to 2024-08-10 11:52:00
+2025-08-22 11:28:34,722 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:28:35,122 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1723230720000 HTTP/1.1" 200 51017
+2025-08-22 11:28:35,148 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-08-09 02:33:00 to 2024-08-09 19:12:00
+2025-08-22 11:28:36,253 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:28:36,654 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1723170720000 HTTP/1.1" 200 52170
+2025-08-22 11:28:36,682 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-08-08 09:53:00 to 2024-08-09 02:32:00
+2025-08-22 11:28:37,788 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:28:38,197 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1723110720000 HTTP/1.1" 200 51474
+2025-08-22 11:28:38,222 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-08-07 17:13:00 to 2024-08-08 09:52:00
+2025-08-22 11:28:39,331 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:28:39,794 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1723050720000 HTTP/1.1" 200 51051
+2025-08-22 11:28:39,826 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-08-07 00:33:00 to 2024-08-07 17:12:00
+2025-08-22 11:28:40,939 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:28:41,327 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1722990720000 HTTP/1.1" 200 51230
+2025-08-22 11:28:41,355 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-08-06 07:53:00 to 2024-08-07 00:32:00
+2025-08-22 11:28:42,462 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:28:42,846 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1722930720000 HTTP/1.1" 200 52081
+2025-08-22 11:28:42,882 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-08-05 15:13:00 to 2024-08-06 07:52:00
+2025-08-22 11:28:43,995 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:28:44,379 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1722870720000 HTTP/1.1" 200 54279
+2025-08-22 11:28:44,405 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-08-04 22:33:00 to 2024-08-05 15:12:00
+2025-08-22 11:28:45,518 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:28:45,817 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1722810720000 HTTP/1.1" 200 50196
+2025-08-22 11:28:46,008 INFO :: Wrote 11000 rows to spot/BTCUSDT/1m
+2025-08-22 11:28:46,009 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-08-04 05:53:00 to 2024-08-04 22:32:00
+2025-08-22 11:28:47,121 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:28:47,534 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1722750720000 HTTP/1.1" 200 49757
+2025-08-22 11:28:47,566 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-08-03 13:13:00 to 2024-08-04 05:52:00
+2025-08-22 11:28:48,678 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:28:48,984 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1722690720000 HTTP/1.1" 200 49598
+2025-08-22 11:28:49,070 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-08-02 20:33:00 to 2024-08-03 13:12:00
+2025-08-22 11:28:50,183 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:28:50,484 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1722630720000 HTTP/1.1" 200 50075
+2025-08-22 11:28:50,512 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-08-02 03:53:00 to 2024-08-02 20:32:00
+2025-08-22 11:28:51,621 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:28:52,122 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1722570720000 HTTP/1.1" 200 50614
+2025-08-22 11:28:52,150 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-08-01 11:13:00 to 2024-08-02 03:52:00
+2025-08-22 11:28:53,262 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:28:53,658 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1722510720000 HTTP/1.1" 200 49394
+2025-08-22 11:28:53,685 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-07-31 18:33:00 to 2024-08-01 11:12:00
+2025-08-22 11:28:54,799 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:28:55,122 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1722450720000 HTTP/1.1" 200 48179
+2025-08-22 11:28:55,154 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-07-31 01:53:00 to 2024-07-31 18:32:00
+2025-08-22 11:28:56,267 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:28:56,705 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1722390720000 HTTP/1.1" 200 48732
+2025-08-22 11:28:56,733 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-07-30 09:13:00 to 2024-07-31 01:52:00
+2025-08-22 11:28:57,847 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:28:58,260 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1722330720000 HTTP/1.1" 200 49099
+2025-08-22 11:28:58,287 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-07-29 16:33:00 to 2024-07-30 09:12:00
+2025-08-22 11:28:59,395 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:28:59,868 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1722270720000 HTTP/1.1" 200 49553
+2025-08-22 11:28:59,912 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-07-28 23:53:00 to 2024-07-29 16:32:00
+2025-08-22 11:29:01,022 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:29:01,398 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1722210720000 HTTP/1.1" 200 46800
+2025-08-22 11:29:01,422 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-07-28 07:13:00 to 2024-07-28 23:52:00
+2025-08-22 11:29:02,528 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:29:02,920 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1722150720000 HTTP/1.1" 200 49400
+2025-08-22 11:29:03,114 INFO :: Wrote 11000 rows to spot/BTCUSDT/1m
+2025-08-22 11:29:03,114 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-07-27 14:33:00 to 2024-07-28 07:12:00
+2025-08-22 11:29:04,227 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:29:04,529 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1722090720000 HTTP/1.1" 200 47174
+2025-08-22 11:29:04,560 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-07-26 21:53:00 to 2024-07-27 14:32:00
+2025-08-22 11:29:05,673 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:29:06,071 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1722030720000 HTTP/1.1" 200 48718
+2025-08-22 11:29:06,097 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-07-26 05:13:00 to 2024-07-26 21:52:00
+2025-08-22 11:29:07,207 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:29:07,603 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1721970720000 HTTP/1.1" 200 50124
+2025-08-22 11:29:07,626 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-07-25 12:33:00 to 2024-07-26 05:12:00
+2025-08-22 11:29:08,738 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:29:09,122 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1721910720000 HTTP/1.1" 200 49396
+2025-08-22 11:29:09,151 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-07-24 19:53:00 to 2024-07-25 12:32:00
+2025-08-22 11:29:10,254 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:29:10,660 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1721850720000 HTTP/1.1" 200 48958
+2025-08-22 11:29:10,682 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-07-24 03:13:00 to 2024-07-24 19:52:00
+2025-08-22 11:29:11,795 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:29:12,097 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1721790720000 HTTP/1.1" 200 49454
+2025-08-22 11:29:12,123 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-07-23 10:33:00 to 2024-07-24 03:12:00
+2025-08-22 11:29:13,236 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:29:13,723 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1721730720000 HTTP/1.1" 200 49002
+2025-08-22 11:29:13,752 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-07-22 17:53:00 to 2024-07-23 10:32:00
+2025-08-22 11:29:14,862 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:29:15,215 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1721670720000 HTTP/1.1" 200 48637
+2025-08-22 11:29:15,239 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-07-22 01:13:00 to 2024-07-22 17:52:00
+2025-08-22 11:29:16,352 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:29:16,773 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1721610720000 HTTP/1.1" 200 48319
+2025-08-22 11:29:16,792 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-07-21 08:33:00 to 2024-07-22 01:12:00
+2025-08-22 11:29:17,905 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:29:18,271 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1721550720000 HTTP/1.1" 200 47493
+2025-08-22 11:29:18,304 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-07-20 15:53:00 to 2024-07-21 08:32:00
+2025-08-22 11:29:19,417 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:29:19,726 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1721490720000 HTTP/1.1" 200 46617
+2025-08-22 11:29:19,927 INFO :: Wrote 11000 rows to spot/BTCUSDT/1m
+2025-08-22 11:29:19,928 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-07-19 23:13:00 to 2024-07-20 15:52:00
+2025-08-22 11:29:21,041 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:29:21,812 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1721430720000 HTTP/1.1" 200 50513
+2025-08-22 11:29:21,867 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-07-19 06:33:00 to 2024-07-19 23:12:00
+2025-08-22 11:29:22,980 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:29:23,344 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1721370720000 HTTP/1.1" 200 49275
+2025-08-22 11:29:23,370 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-07-18 13:53:00 to 2024-07-19 06:32:00
+2025-08-22 11:29:24,483 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:29:24,907 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1721310720000 HTTP/1.1" 200 48954
+2025-08-22 11:29:24,933 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-07-17 21:13:00 to 2024-07-18 13:52:00
+2025-08-22 11:29:26,038 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:29:26,435 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1721250720000 HTTP/1.1" 200 50321
+2025-08-22 11:29:26,461 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-07-17 04:33:00 to 2024-07-17 21:12:00
+2025-08-22 11:29:27,569 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:29:27,967 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1721190720000 HTTP/1.1" 200 51072
+2025-08-22 11:29:27,998 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-07-16 11:53:00 to 2024-07-17 04:32:00
+2025-08-22 11:29:29,112 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:29:29,420 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1721130720000 HTTP/1.1" 200 50858
+2025-08-22 11:29:29,449 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-07-15 19:13:00 to 2024-07-16 11:52:00
+2025-08-22 11:29:30,562 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:29:31,280 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1721070720000 HTTP/1.1" 200 50491
+2025-08-22 11:29:31,469 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-07-15 02:33:00 to 2024-07-15 19:12:00
+2025-08-22 11:29:32,581 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:29:33,638 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1721010720000 HTTP/1.1" 200 48659
+2025-08-22 11:29:33,887 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-07-14 09:53:00 to 2024-07-15 02:32:00
+2025-08-22 11:29:34,996 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:29:35,534 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1720950720000 HTTP/1.1" 200 48375
+2025-08-22 11:29:35,636 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-07-13 17:13:00 to 2024-07-14 09:52:00
+2025-08-22 11:29:36,750 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:29:37,422 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1720890720000 HTTP/1.1" 200 47543
+2025-08-22 11:29:37,645 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-07-13 00:33:00 to 2024-07-13 17:12:00
+2025-08-22 11:29:38,755 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:29:39,196 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1720830720000 HTTP/1.1" 200 49542
+2025-08-22 11:29:39,420 INFO :: Wrote 11000 rows to spot/BTCUSDT/1m
+2025-08-22 11:29:39,421 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-07-12 07:53:00 to 2024-07-13 00:32:00
+2025-08-22 11:29:40,534 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:29:41,591 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1720770720000 HTTP/1.1" 200 49636
+2025-08-22 11:29:41,948 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-07-11 15:13:00 to 2024-07-12 07:52:00
+2025-08-22 11:29:43,061 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:29:43,465 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1720710720000 HTTP/1.1" 200 50295
+2025-08-22 11:29:43,509 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-07-10 22:33:00 to 2024-07-11 15:12:00
+2025-08-22 11:29:44,619 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:29:44,986 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1720650720000 HTTP/1.1" 200 50243
+2025-08-22 11:29:45,038 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-07-10 05:53:00 to 2024-07-10 22:32:00
+2025-08-22 11:29:46,151 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:29:46,516 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1720590720000 HTTP/1.1" 200 49968
+2025-08-22 11:29:46,557 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-07-09 13:13:00 to 2024-07-10 05:52:00
+2025-08-22 11:29:47,671 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:29:48,145 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1720530720000 HTTP/1.1" 200 49945
+2025-08-22 11:29:48,183 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-07-08 20:33:00 to 2024-07-09 13:12:00
+2025-08-22 11:29:49,289 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:29:49,593 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1720470720000 HTTP/1.1" 200 51224
+2025-08-22 11:29:49,616 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-07-08 03:53:00 to 2024-07-08 20:32:00
+2025-08-22 11:29:50,729 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:29:51,127 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1720410720000 HTTP/1.1" 200 49639
+2025-08-22 11:29:51,212 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-07-07 11:13:00 to 2024-07-08 03:52:00
+2025-08-22 11:29:52,321 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:29:52,651 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1720350720000 HTTP/1.1" 200 48394
+2025-08-22 11:29:52,681 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-07-06 18:33:00 to 2024-07-07 11:12:00
+2025-08-22 11:29:53,786 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:29:54,176 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1720290720000 HTTP/1.1" 200 48870
+2025-08-22 11:29:54,198 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-07-06 01:53:00 to 2024-07-06 18:32:00
+2025-08-22 11:29:55,309 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:29:55,697 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1720230720000 HTTP/1.1" 200 50955
+2025-08-22 11:29:55,724 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-07-05 09:13:00 to 2024-07-06 01:52:00
+2025-08-22 11:29:56,836 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:29:57,249 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1720170720000 HTTP/1.1" 200 51307
+2025-08-22 11:29:57,466 INFO :: Wrote 11000 rows to spot/BTCUSDT/1m
+2025-08-22 11:29:57,467 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-07-04 16:33:00 to 2024-07-05 09:12:00
+2025-08-22 11:29:58,580 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:29:58,885 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1720110720000 HTTP/1.1" 200 50903
+2025-08-22 11:29:58,912 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-07-03 23:53:00 to 2024-07-04 16:32:00
+2025-08-22 11:30:00,021 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:30:00,473 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1720050720000 HTTP/1.1" 200 49938
+2025-08-22 11:30:00,502 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-07-03 07:13:00 to 2024-07-03 23:52:00
+2025-08-22 11:30:01,609 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:30:02,164 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1719990720000 HTTP/1.1" 200 48441
+2025-08-22 11:30:02,199 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-07-02 14:33:00 to 2024-07-03 07:12:00
+2025-08-22 11:30:03,312 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:30:03,696 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1719930720000 HTTP/1.1" 200 48105
+2025-08-22 11:30:03,764 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-07-01 21:53:00 to 2024-07-02 14:32:00
+2025-08-22 11:30:04,877 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:30:05,254 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1719870720000 HTTP/1.1" 200 49008
+2025-08-22 11:30:05,287 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-07-01 05:13:00 to 2024-07-01 21:52:00
+2025-08-22 11:30:06,401 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:30:06,780 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1719810720000 HTTP/1.1" 200 48609
+2025-08-22 11:30:06,808 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-06-30 12:33:00 to 2024-07-01 05:12:00
+2025-08-22 11:30:07,920 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:30:08,311 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1719750720000 HTTP/1.1" 200 45959
+2025-08-22 11:30:08,338 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-06-29 19:53:00 to 2024-06-30 12:32:00
+2025-08-22 11:30:09,452 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:30:09,947 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1719690720000 HTTP/1.1" 200 45667
+2025-08-22 11:30:09,971 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-06-29 03:13:00 to 2024-06-29 19:52:00
+2025-08-22 11:30:11,078 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:30:11,477 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1719630720000 HTTP/1.1" 200 49242
+2025-08-22 11:30:11,502 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-06-28 10:33:00 to 2024-06-29 03:12:00
+2025-08-22 11:30:12,606 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:30:12,912 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1719570720000 HTTP/1.1" 200 47892
+2025-08-22 11:30:12,940 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-06-27 17:53:00 to 2024-06-28 10:32:00
+2025-08-22 11:30:14,052 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:30:14,528 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1719510720000 HTTP/1.1" 200 49162
+2025-08-22 11:30:14,740 INFO :: Wrote 11000 rows to spot/BTCUSDT/1m
+2025-08-22 11:30:14,741 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-06-27 01:13:00 to 2024-06-27 17:52:00
+2025-08-22 11:30:15,854 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:30:16,256 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1719450720000 HTTP/1.1" 200 49206
+2025-08-22 11:30:16,324 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-06-26 08:33:00 to 2024-06-27 01:12:00
+2025-08-22 11:30:17,438 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:30:17,882 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1719390720000 HTTP/1.1" 200 48708
+2025-08-22 11:30:17,916 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-06-25 15:53:00 to 2024-06-26 08:32:00
+2025-08-22 11:30:19,028 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:30:19,340 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1719330720000 HTTP/1.1" 200 49992
+2025-08-22 11:30:19,374 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-06-24 23:13:00 to 2024-06-25 15:52:00
+2025-08-22 11:30:20,486 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:30:20,940 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1719270720000 HTTP/1.1" 200 51368
+2025-08-22 11:30:20,972 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-06-24 06:33:00 to 2024-06-24 23:12:00
+2025-08-22 11:30:22,086 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:30:22,468 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1719210720000 HTTP/1.1" 200 47585
+2025-08-22 11:30:22,495 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-06-23 13:53:00 to 2024-06-24 06:32:00
+2025-08-22 11:30:23,607 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:30:23,987 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1719150720000 HTTP/1.1" 200 41975
+2025-08-22 11:30:24,015 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-06-22 21:13:00 to 2024-06-23 13:52:00
+2025-08-22 11:30:25,128 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:30:25,514 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1719090720000 HTTP/1.1" 200 44011
+2025-08-22 11:30:25,541 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-06-22 04:33:00 to 2024-06-22 21:12:00
+2025-08-22 11:30:26,654 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:30:27,045 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1719030720000 HTTP/1.1" 200 48809
+2025-08-22 11:30:27,084 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-06-21 11:53:00 to 2024-06-22 04:32:00
+2025-08-22 11:30:28,195 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:30:28,581 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1718970720000 HTTP/1.1" 200 48517
+2025-08-22 11:30:28,605 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-06-20 19:13:00 to 2024-06-21 11:52:00
+2025-08-22 11:30:29,712 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:30:30,217 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1718910720000 HTTP/1.1" 200 49745
+2025-08-22 11:30:30,251 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-06-20 02:33:00 to 2024-06-20 19:12:00
+2025-08-22 11:30:31,354 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:30:31,661 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1718850720000 HTTP/1.1" 200 48501
+2025-08-22 11:30:31,874 INFO :: Wrote 11000 rows to spot/BTCUSDT/1m
+2025-08-22 11:30:31,874 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-06-19 09:53:00 to 2024-06-20 02:32:00
+2025-08-22 11:30:32,987 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:30:33,289 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1718790720000 HTTP/1.1" 200 49820
+2025-08-22 11:30:33,323 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-06-18 17:13:00 to 2024-06-19 09:52:00
+2025-08-22 11:30:34,437 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:30:35,144 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1718730720000 HTTP/1.1" 200 50711
+2025-08-22 11:30:36,005 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-06-18 00:33:00 to 2024-06-18 17:12:00
+2025-08-22 11:30:37,118 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:30:37,463 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1718670720000 HTTP/1.1" 200 50027
+2025-08-22 11:30:37,580 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-06-17 07:53:00 to 2024-06-18 00:32:00
+2025-08-22 11:30:38,685 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:30:39,010 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1718610720000 HTTP/1.1" 200 46927
+2025-08-22 11:30:39,074 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-06-16 15:13:00 to 2024-06-17 07:52:00
+2025-08-22 11:30:40,186 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:30:40,721 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1718550720000 HTTP/1.1" 200 44813
+2025-08-22 11:30:40,755 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-06-15 22:33:00 to 2024-06-16 15:12:00
+2025-08-22 11:30:41,868 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:30:42,195 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1718490720000 HTTP/1.1" 200 45565
+2025-08-22 11:30:42,228 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-06-15 05:53:00 to 2024-06-15 22:32:00
+2025-08-22 11:30:43,340 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:30:43,659 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1718430720000 HTTP/1.1" 200 49182
+2025-08-22 11:30:43,697 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-06-14 13:13:00 to 2024-06-15 05:52:00
+2025-08-22 11:30:44,805 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:30:45,125 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1718370720000 HTTP/1.1" 200 48504
+2025-08-22 11:30:45,189 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-06-13 20:33:00 to 2024-06-14 13:12:00
+2025-08-22 11:30:46,295 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:30:46,709 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1718310720000 HTTP/1.1" 200 50098
+2025-08-22 11:30:46,716 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-06-13 03:53:00 to 2024-06-13 20:32:00
+2025-08-22 11:30:47,829 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:30:48,258 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1718250720000 HTTP/1.1" 200 50684
+2025-08-22 11:30:48,312 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-06-12 11:13:00 to 2024-06-13 03:52:00
+2025-08-22 11:30:49,421 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:30:49,887 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1718190720000 HTTP/1.1" 200 48236
+2025-08-22 11:30:50,209 INFO :: Wrote 11000 rows to spot/BTCUSDT/1m
+2025-08-22 11:30:50,209 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-06-11 18:33:00 to 2024-06-12 11:12:00
+2025-08-22 11:30:51,322 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:30:51,720 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1718130720000 HTTP/1.1" 200 51323
+2025-08-22 11:30:51,767 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-06-11 01:53:00 to 2024-06-11 18:32:00
+2025-08-22 11:30:52,871 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:30:53,191 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1718070720000 HTTP/1.1" 200 47865
+2025-08-22 11:30:53,227 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-06-10 09:13:00 to 2024-06-11 01:52:00
+2025-08-22 11:30:54,338 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:30:54,771 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1718010720000 HTTP/1.1" 200 46066
+2025-08-22 11:30:54,797 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-06-09 16:33:00 to 2024-06-10 09:12:00
+2025-08-22 11:30:55,902 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:30:56,202 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1717950720000 HTTP/1.1" 200 44221
+2025-08-22 11:30:56,232 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-06-08 23:53:00 to 2024-06-09 16:32:00
+2025-08-22 11:30:57,345 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:30:57,675 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1717890720000 HTTP/1.1" 200 45114
+2025-08-22 11:30:57,693 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-06-08 07:13:00 to 2024-06-08 23:52:00
+2025-08-22 11:30:58,806 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:30:59,259 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1717830720000 HTTP/1.1" 200 48059
+2025-08-22 11:30:59,287 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-06-07 14:33:00 to 2024-06-08 07:12:00
+2025-08-22 11:31:00,398 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:31:00,773 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1717770720000 HTTP/1.1" 200 48247
+2025-08-22 11:31:00,812 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-06-06 21:53:00 to 2024-06-07 14:32:00
+2025-08-22 11:31:01,923 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:31:02,370 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1717710720000 HTTP/1.1" 200 49004
+2025-08-22 11:31:02,399 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-06-06 05:13:00 to 2024-06-06 21:52:00
+2025-08-22 11:31:03,511 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:31:03,906 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1717650720000 HTTP/1.1" 200 48961
+2025-08-22 11:31:03,933 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-06-05 12:33:00 to 2024-06-06 05:12:00
+2025-08-22 11:31:05,045 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:31:05,454 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1717590720000 HTTP/1.1" 200 48936
+2025-08-22 11:31:05,478 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-06-04 19:53:00 to 2024-06-05 12:32:00
+2025-08-22 11:31:06,591 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:31:06,979 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1717530720000 HTTP/1.1" 200 49906
+2025-08-22 11:31:07,203 INFO :: Wrote 11000 rows to spot/BTCUSDT/1m
+2025-08-22 11:31:07,204 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-06-04 03:13:00 to 2024-06-04 19:52:00
+2025-08-22 11:31:08,317 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:31:08,721 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1717470720000 HTTP/1.1" 200 49478
+2025-08-22 11:31:08,751 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-06-03 10:33:00 to 2024-06-04 03:12:00
+2025-08-22 11:31:09,858 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:31:10,255 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1717410720000 HTTP/1.1" 200 48450
+2025-08-22 11:31:10,281 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-06-02 17:53:00 to 2024-06-03 10:32:00
+2025-08-22 11:31:11,395 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:31:11,690 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1717350720000 HTTP/1.1" 200 46574
+2025-08-22 11:31:11,720 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-06-02 01:13:00 to 2024-06-02 17:52:00
+2025-08-22 11:31:12,833 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:31:13,303 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1717290720000 HTTP/1.1" 200 44885
+2025-08-22 11:31:13,335 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-06-01 08:33:00 to 2024-06-02 01:12:00
+2025-08-22 11:31:14,448 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:31:14,863 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1717230720000 HTTP/1.1" 200 47291
+2025-08-22 11:31:14,907 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-05-31 15:53:00 to 2024-06-01 08:32:00
+2025-08-22 11:31:16,019 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:31:16,335 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1717170720000 HTTP/1.1" 200 48529
+2025-08-22 11:31:16,390 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-05-30 23:13:00 to 2024-05-31 15:52:00
+2025-08-22 11:31:17,495 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:31:17,899 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1717110720000 HTTP/1.1" 200 50187
+2025-08-22 11:31:17,923 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-05-30 06:33:00 to 2024-05-30 23:12:00
+2025-08-22 11:31:19,035 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:31:19,421 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1717050720000 HTTP/1.1" 200 49070
+2025-08-22 11:31:19,449 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-05-29 13:53:00 to 2024-05-30 06:32:00
+2025-08-22 11:31:20,556 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:31:21,052 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1716990720000 HTTP/1.1" 200 48946
+2025-08-22 11:31:21,074 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-05-28 21:13:00 to 2024-05-29 13:52:00
+2025-08-22 11:31:22,183 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:31:22,576 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1716930720000 HTTP/1.1" 200 50431
+2025-08-22 11:31:22,617 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-05-28 04:33:00 to 2024-05-28 21:12:00
+2025-08-22 11:31:23,725 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:31:24,063 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1716870720000 HTTP/1.1" 200 49983
+2025-08-22 11:31:24,276 INFO :: Wrote 11000 rows to spot/BTCUSDT/1m
+2025-08-22 11:31:24,276 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-05-27 11:53:00 to 2024-05-28 04:32:00
+2025-08-22 11:31:25,384 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:31:25,734 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1716810720000 HTTP/1.1" 200 47973
+2025-08-22 11:31:25,760 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-05-26 19:13:00 to 2024-05-27 11:52:00
+2025-08-22 11:31:26,868 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:31:27,275 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1716750720000 HTTP/1.1" 200 47279
+2025-08-22 11:31:27,392 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-05-26 02:33:00 to 2024-05-26 19:12:00
+2025-08-22 11:31:28,500 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:31:29,210 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1716690720000 HTTP/1.1" 200 46664
+2025-08-22 11:31:30,536 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-05-25 09:53:00 to 2024-05-26 02:32:00
+2025-08-22 11:31:31,644 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:31:32,072 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1716630720000 HTTP/1.1" 200 47419
+2025-08-22 11:31:32,119 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-05-24 17:13:00 to 2024-05-25 09:52:00
+2025-08-22 11:31:33,228 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:31:33,684 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1716570720000 HTTP/1.1" 200 50501
+2025-08-22 11:31:33,731 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-05-24 00:33:00 to 2024-05-24 17:12:00
+2025-08-22 11:31:34,839 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:31:35,324 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1716510720000 HTTP/1.1" 200 51401
+2025-08-22 11:31:35,381 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-05-23 07:53:00 to 2024-05-24 00:32:00
+2025-08-22 11:31:36,490 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:31:36,937 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1716450720000 HTTP/1.1" 200 49625
+2025-08-22 11:31:36,988 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-05-22 15:13:00 to 2024-05-23 07:52:00
+2025-08-22 11:31:38,094 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:31:38,474 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1716390720000 HTTP/1.1" 200 49965
+2025-08-22 11:31:38,524 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-05-21 22:33:00 to 2024-05-22 15:12:00
+2025-08-22 11:31:39,632 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:31:39,990 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1716330720000 HTTP/1.1" 200 50757
+2025-08-22 11:31:40,044 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-05-21 05:53:00 to 2024-05-21 22:32:00
+2025-08-22 11:31:41,153 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:31:41,475 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1716270720000 HTTP/1.1" 200 52117
+2025-08-22 11:31:41,513 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-05-20 13:13:00 to 2024-05-21 05:52:00
+2025-08-22 11:31:42,621 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:31:42,935 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1716210720000 HTTP/1.1" 200 48533
+2025-08-22 11:31:43,211 INFO :: Wrote 11000 rows to spot/BTCUSDT/1m
+2025-08-22 11:31:43,211 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-05-19 20:33:00 to 2024-05-20 13:12:00
+2025-08-22 11:31:44,320 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:31:44,785 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1716150720000 HTTP/1.1" 200 48182
+2025-08-22 11:31:44,823 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-05-19 03:53:00 to 2024-05-19 20:32:00
+2025-08-22 11:31:45,931 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:31:46,299 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1716090720000 HTTP/1.1" 200 46307
+2025-08-22 11:31:46,337 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-05-18 11:13:00 to 2024-05-19 03:52:00
+2025-08-22 11:31:47,446 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:31:47,851 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1716030720000 HTTP/1.1" 200 47383
+2025-08-22 11:31:47,992 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-05-17 18:33:00 to 2024-05-18 11:12:00
+2025-08-22 11:31:49,100 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:31:49,483 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1715970720000 HTTP/1.1" 200 49847
+2025-08-22 11:31:49,617 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-05-17 01:53:00 to 2024-05-17 18:32:00
+2025-08-22 11:31:50,725 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:31:51,161 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1715910720000 HTTP/1.1" 200 49938
+2025-08-22 11:31:51,320 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-05-16 09:13:00 to 2024-05-17 01:52:00
+2025-08-22 11:31:52,432 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:31:52,797 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1715850720000 HTTP/1.1" 200 49910
+2025-08-22 11:31:53,043 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-05-15 16:33:00 to 2024-05-16 09:12:00
+2025-08-22 11:31:54,151 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:31:54,679 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1715790720000 HTTP/1.1" 200 49757
+2025-08-22 11:31:54,822 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-05-14 23:53:00 to 2024-05-15 16:32:00
+2025-08-22 11:31:55,930 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:31:56,345 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1715730720000 HTTP/1.1" 200 49358
+2025-08-22 11:31:56,535 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-05-14 07:13:00 to 2024-05-14 23:52:00
+2025-08-22 11:31:57,643 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:31:58,101 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1715670720000 HTTP/1.1" 200 49637
+2025-08-22 11:31:58,243 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-05-13 14:33:00 to 2024-05-14 07:12:00
+2025-08-22 11:31:59,352 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:31:59,730 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1715610720000 HTTP/1.1" 200 49989
+2025-08-22 11:31:59,976 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-05-12 21:53:00 to 2024-05-13 14:32:00
+2025-08-22 11:32:01,084 DEBUG :: Starting new HTTPS connection (1): api.binance.com:443
+2025-08-22 11:32:01,685 DEBUG :: https://api.binance.com:443 "GET /api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1500&endTime=1715550720000 HTTP/1.1" 200 47236
+2025-08-22 11:32:02,198 INFO :: Wrote 11000 rows to spot/BTCUSDT/1m
+2025-08-22 11:32:02,199 INFO :: binance BTCUSDT: Collected 1000 older candles from 2024-05-12 05:13:00 to 2024-05-12 21:52:00
