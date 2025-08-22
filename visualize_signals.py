@@ -19,21 +19,10 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# Map strategies to their expected indicator columns
-STRATEGY_INDICATORS = {
-    'supertrend': [
-        {'column': 'supertrend', 'name': 'Supertrend', 'color': 'purple', 'dash': None},
-        {'column': 'upper_band', 'name': 'Upper Band', 'color': 'red', 'dash': 'dash'},
-        {'column': 'lower_band', 'name': 'Lower Band', 'color': 'green', 'dash': 'dash'}
-    ],
-    'moving_average_crossover': [
-        {'column': 'short_ema', 'name': 'Short EMA', 'color': 'blue', 'dash': None},
-        {'column': 'long_ema', 'name': 'Long EMA', 'color': 'orange', 'dash': None}
-    ]
-}
-
 def load_config(config_path: str) -> dict:
-    """Load configuration from JSON file."""
+    """
+    Load configuration from JSON file.
+    """
     try:
         with open(config_path, 'r') as f:
             config = json.load(f)
@@ -44,11 +33,13 @@ def load_config(config_path: str) -> dict:
         raise
 
 def load_price_data(hdf5_path: str, symbol: str, futures: bool) -> pd.DataFrame:
-    """Load OHLCV data from HDF5 file."""
+    """
+    Load OHLCV data from HDF5 file.
+    """
     try:
         with h5py.File(hdf5_path, 'r') as f:
             market_type = 'futures' if futures else 'spot'
-            dataset_path = f"{market_type}/{symbol}/1m"
+            dataset_path = f"{market_type}/{symbol}"
             if dataset_path not in f:
                 raise KeyError(f"Dataset {dataset_path} not found in {hdf5_path}")
             data = f[dataset_path][:]
@@ -58,63 +49,74 @@ def load_price_data(hdf5_path: str, symbol: str, futures: bool) -> pd.DataFrame:
             )
             df['timestamp'] = pd.to_datetime(df['timestamp'], unit='ms')
             df.set_index('timestamp', inplace=True)
+            logger.info(f"Loaded {len(df)} candles from {dataset_path}")
             return df
     except Exception as e:
         logger.error(f"Failed to load price data: {e}")
         raise
 
 def resample_timeframe(df: pd.DataFrame, timeframe: str) -> pd.DataFrame:
-    """Resample OHLCV data to the specified timeframe."""
-    tf_map = {'1h': '1h', '1d': '1d'}
+    """
+    Resample OHLCV data to the specified timeframe.
+    """
+    tf_map = {
+        '1m': '1min',
+        '5m': '5min',
+        '15m': '15min',
+        '30m': '30min',
+        '1h': '1H',
+        '4h': '4H',
+        '12h': '12H',
+        '1d': '1D'
+    }
     if timeframe not in tf_map:
         raise ValueError(f"Unsupported timeframe: {timeframe}. Supported: {list(tf_map.keys())}")
-    return df.resample(tf_map[timeframe]).agg({
-        "open": "first",
-        "high": "max",
-        "low": "min",
-        "close": "last",
-        "volume": "sum"
-    }).dropna()
+    if timeframe != '1m':
+        df = df.resample(tf_map[timeframe]).agg(
+            {"open": "first", "high": "max", "low": "min", "close": "last", "volume": "sum"}
+        ).dropna()
+        logger.info(f"Resampled data to {timeframe} ({len(df)} candles)")
+    return df
 
 def load_signals(signals_path: str) -> pd.DataFrame:
-    """Load signals from CSV file."""
+    """
+    Load signals from CSV file.
+    """
     try:
         df = pd.read_csv(signals_path)
         df['timestamp'] = pd.to_datetime(df['timestamp'])
         df.set_index('timestamp', inplace=True)
         logger.info(f"Loaded {len(df)} signals from {signals_path}")
-        if len(df) == 0:
-            logger.warning("No signals found in CSV. Chart may lack signal markers.")
         return df
     except Exception as e:
         logger.error(f"Failed to load signals: {e}")
         raise
 
-def create_candlestick_chart(price_df: pd.DataFrame, signals_df: pd.DataFrame, symbol: str, futures: bool, signals_path: str) -> go.Figure:
-    """Create interactive candlestick chart with signals, indicators, PNL, and drawdown."""
-    # Detect strategy from signals_path
-    strategy = None
-    for strat in STRATEGY_INDICATORS:
-        if strat in signals_path:
-            strategy = strat
-            break
-    if not strategy:
-        logger.warning(f"Could not detect strategy from {signals_path}. Skipping indicator plots.")
-        indicators_to_plot = []
-    else:
-        indicators_to_plot = STRATEGY_INDICATORS[strategy]
-        logger.info(f"Detected strategy: {strategy}")
+def load_indicators(indicators_path: str) -> pd.DataFrame:
+    """
+    Load indicators from CSV file.
+    """
+    try:
+        df = pd.read_csv(indicators_path, index_col='timestamp')
+        df.index = pd.to_datetime(df.index)
+        logger.info(f"Loaded indicators from {indicators_path}")
+        return df
+    except Exception as e:
+        logger.error(f"Failed to load indicators: {e}")
+        raise
 
-    # Initialize subplots: price (main), PNL, drawdown
+def create_candlestick_chart(price_df: pd.DataFrame, signals_df: pd.DataFrame, indicators_df: pd.DataFrame, 
+                            symbol: str, futures: bool, strategy: str) -> go.Figure:
+    """
+    Create a candlestick chart with signals and indicators.
+    """
     fig = make_subplots(
-        rows=3, cols=1,
-        shared_xaxes=True,
-        vertical_spacing=0.02,
-        row_heights=[0.7, 0.15, 0.15],
-        subplot_titles=('Price Chart', 'Cumulative PNL', 'Drawdown')
+        rows=2, cols=1, shared_xaxes=True, vertical_spacing=0.1,
+        subplot_titles=(f"{symbol} {'Futures' if futures else 'Spot'} Price", "Cumulative PnL"),
+        row_heights=[0.7, 0.3]
     )
 
-    # Candlestick trace
+    # Candlestick chart
     fig.add_trace(
         go.Candlestick(
             x=price_df.index,
@@ -122,132 +124,132 @@ def create_candlestick_chart(price_df: pd.DataFrame, signals_df: pd.DataFrame, s
             high=price_df['high'],
             low=price_df['low'],
             close=price_df['close'],
-            name='Candlestick'
+            name='OHLC'
         ),
         row=1, col=1
     )
 
-    # Load and plot indicators
-    indicators_path = signals_path.replace('_signals.csv', '_indicators.csv')
-    if os.path.exists(indicators_path):
-        indicators_df = pd.read_csv(indicators_path, index_col='timestamp', parse_dates=True)
-        for indicator in indicators_to_plot:
-            if indicator['column'] in indicators_df.columns:
-                fig.add_trace(
-                    go.Scatter(
-                        x=indicators_df.index,
-                        y=indicators_df[indicator['column']],
-                        mode='lines',
-                        name=indicator['name'],
-                        line=dict(color=indicator['color'], dash=indicator['dash'])
-                    ),
-                    row=1, col=1
-                )
-                logger.info(f"Added {indicator['name']} to chart.")
-            else:
-                logger.warning(f"{indicator['name']} ({indicator['column']}) not found in indicators CSV.")
-    else:
-        logger.warning(f"Indicators file not found: {indicators_path}. Skipping indicator plots.")
+    # Calculate offset for signal markers (0.5% of price range)
+    price_range = price_df['high'].max() - price_df['low'].min()
+    offset = price_range * 0.005
 
-    # Signal markers with futures/spot labels and hover text
-    signal_text = {'buy': 'Long' if futures else 'Buy', 'sell': 'Short' if futures else 'Sell'}
-    buy_signals = signals_df[signals_df['signal'] > 0]
-    sell_signals = signals_df[signals_df['signal'] < 0]
-
-    # Buy/Long signals
-    if not buy_signals.empty:
-        fig.add_trace(
-            go.Scatter(
-                x=buy_signals.index,
-                y=price_df.loc[buy_signals.index]['low'] * 0.99,  # Slightly below low
-                mode='markers+text',
-                marker=dict(symbol='triangle-up', color='green', size=10),
-                text=[signal_text['buy']] * len(buy_signals),
-                textposition='bottom center',
-                hovertext=[
-                    f"{signal_text['buy']} at {row['entry_price']:.2f}, PNL: {row['trade_pnl']:.2f}"
-                    for _, row in buy_signals.iterrows()
-                ],
-                hoverinfo='text',
-                name=f"{signal_text['buy']} Signals"
-            ),
-            row=1, col=1
-        )
-
-    # Sell/Short signals
-    if not sell_signals.empty:
-        fig.add_trace(
-            go.Scatter(
-                x=sell_signals.index,
-                y=price_df.loc[sell_signals.index]['high'] * 1.01,  # Slightly above high
-                mode='markers+text',
-                marker=dict(symbol='triangle-down', color='red', size=10),
-                text=[signal_text['sell']] * len(sell_signals),
-                textposition='top center',
-                hovertext=[
-                    f"{signal_text['sell']} at {row['exit_price']:.2f}, PNL: {row['trade_pnl']:.2f}"
-                    for _, row in sell_signals.iterrows()
-                ],
-                hoverinfo='text',
-                name=f"{signal_text['sell']} Signals"
-            ),
-            row=1, col=1
-        )
-
-    # PNL subplot
-    if 'cum_pnl' in signals_df.columns and not signals_df['cum_pnl'].isna().all():
-        fig.add_trace(
-            go.Scatter(
-                x=signals_df.index,
-                y=signals_df['cum_pnl'],
-                mode='lines',
-                name='Cumulative PNL',
-                line=dict(color='green')
-            ),
-            row=2, col=1
-        )
-    else:
-        logger.warning("No valid cum_pnl data for PNL subplot.")
-
-    # Drawdown subplot
-    if 'drawdown' in signals_df.columns and not signals_df['drawdown'].isna().all():
-        fig.add_trace(
-            go.Scatter(
-                x=signals_df.index,
-                y=signals_df['drawdown'],
-                mode='lines',
-                name='Drawdown',
-                line=dict(color='red')
-            ),
-            row=3, col=1
-        )
-    else:
-        logger.warning("No valid drawdown data for drawdown subplot.")
-
-    # Layout updates
-    fig.update_layout(
-        title=f"{symbol} Signals and Indicators ({'Futures' if futures else 'Spot'})",
-        xaxis_title='Date',
-        yaxis_title='Price',
-        xaxis_rangeslider_visible=False,
-        height=800,
-        showlegend=True
+    # Buy signals (below candlestick low)
+    buy_signals = signals_df[signals_df['signal'] == 1]
+    buy_y = price_df.loc[buy_signals.index, 'low'] - offset
+    fig.add_trace(
+        go.Scatter(
+            x=buy_signals.index,
+            y=buy_y,
+            mode='markers',
+            marker=dict(symbol='triangle-up', size=10, color='green'),
+            name='Buy Signal'
+        ),
+        row=1, col=1
     )
-    fig.update_xaxes(title_text='Date', row=3, col=1)
-    fig.update_yaxes(title_text='PNL', row=2, col=1)
-    fig.update_yaxes(title_text='Drawdown', row=3, col=1)
+
+    # Sell signals (above candlestick high)
+    sell_signals = signals_df[signals_df['signal'] == -1]
+    sell_y = price_df.loc[sell_signals.index, 'high'] + offset
+    fig.add_trace(
+        go.Scatter(
+            x=sell_signals.index,
+            y=sell_y,
+            mode='markers',
+            marker=dict(symbol='triangle-down', size=10, color='red'),
+            name='Sell Signal'
+        ),
+        row=1, col=1
+    )
+
+    # Plot indicators based on strategy
+    if strategy == 'supertrend' and not indicators_df.empty:
+        if 'upper_band' in indicators_df.columns:
+            fig.add_trace(
+                go.Scatter(
+                    x=indicators_df.index,
+                    y=indicators_df['upper_band'],
+                    mode='lines',
+                    name='Upper Band',
+                    line=dict(color='orange', dash='dash')
+                ),
+                row=1, col=1
+            )
+        if 'lower_band' in indicators_df.columns:
+            fig.add_trace(
+                go.Scatter(
+                    x=indicators_df.index,
+                    y=indicators_df['lower_band'],
+                    mode='lines',
+                    name='Lower Band',
+                    line=dict(color='blue', dash='dash')
+                ),
+                row=1, col=1
+            )
+    elif strategy == 'moving_average_crossover' and not indicators_df.empty:
+        if 'short_ema' in indicators_df.columns:
+            fig.add_trace(
+                go.Scatter(
+                    x=indicators_df.index,
+                    y=indicators_df['short_ema'],
+                    mode='lines',
+                    name='Short EMA',
+                    line=dict(color='cyan')
+                ),
+                row=1, col=1
+            )
+        if 'long_ema' in indicators_df.columns:
+            fig.add_trace(
+                go.Scatter(
+                    x=indicators_df.index,
+                    y=indicators_df['long_ema'],
+                    mode='lines',
+                    name='Long EMA',
+                    line=dict(color='purple')
+                ),
+                row=1, col=1
+            )
+
+    # Cumulative PnL
+    fig.add_trace(
+        go.Scatter(
+            x=signals_df.index,
+            y=signals_df['cum_pnl'],
+            mode='lines',
+            name='Cumulative PnL',
+            line=dict(color='blue')
+        ),
+        row=2, col=1
+    )
+
+    # Update layout
+    fig.update_layout(
+        title=f"{symbol} {'Futures' if futures else 'Spot'} - {strategy.replace('_', ' ').title()} Signals",
+        xaxis_title="Time",
+        yaxis_title="Price",
+        xaxis_rangeslider_visible=False,
+        showlegend=True,
+        template='plotly_dark'
+    )
+
+    fig.update_xaxes(rangeslider_visible=False, row=1, col=1)
+    fig.update_yaxes(title_text="Price", row=1, col=1)
+    fig.update_yaxes(title_text="Cumulative PnL", row=2, col=1)
 
     return fig
 
 def main():
-    """Main entry point for visualization."""
-    parser = argparse.ArgumentParser(description="Visualize trading signals and indicators.")
-    parser.add_argument('--config', type=str, required=True, help='Path to configuration JSON file')
+    """
+    Main function to generate and save the signals visualization.
+    """
+    parser = argparse.ArgumentParser(description="Visualize trading signals with price data")
+    parser.add_argument('--config', required=True, help='Path to JSON config file')
     parser.add_argument('--symbol', type=str, help='Symbol (e.g., BTCUSDT), overrides config')
     parser.add_argument('--timeframe', type=str, help='Timeframe (e.g., 1h, 1d), overrides config')
     parser.add_argument('--futures', action='store_true', help='Use futures data (default: spot), overrides config')
     parser.add_argument('--hdf5-path', type=str, help='Path to HDF5 data file, overrides config')
     parser.add_argument('--signals-path', type=str, help='Path to signals CSV file, overrides config')
+    parser.add_argument('--indicators-path', type=str, help='Path to indicators CSV file, overrides config')
+    parser.add_argument('--strategy', type=str, help='Strategy name, overrides inferred strategy')
     parser.add_argument('--output', type=str, help='Output HTML file, overrides config')
 
     args = parser.parse_args()
@@ -255,12 +257,25 @@ def main():
     # Load config
     config = load_config(args.config)
 
-    # Override config with CLI arguments
+    # Override config with command-line arguments if provided
     symbol = args.symbol or config.get('symbol', 'BTCUSDT')
     timeframe = args.timeframe or config.get('timeframe', '1h')
     futures = args.futures or config.get('futures', False)
     hdf5_path = args.hdf5_path or config.get('hdf5_path', 'data/binance.h5')
-    signals_path = args.signals_path or config.get('signals_path', f"moving_average_crossover_{symbol}_{timeframe}_signals.csv")
+    signals_path = args.signals_path or config.get('signals_path', f"supertrend_{symbol}_{timeframe}_signals.csv")
+    
+    # Infer strategy from signals_path if not provided
+    strategy = args.strategy or config.get('strategy')
+    if not strategy:
+        if 'supertrend' in signals_path.lower():
+            strategy = 'supertrend'
+        elif 'moving_average_crossover' in signals_path.lower():
+            strategy = 'moving_average_crossover'
+        else:
+            strategy = 'supertrend'  # Default fallback
+    logger.info(f"Using strategy: {strategy}")
+
+    indicators_path = args.indicators_path or config.get('indicators_path', f"{strategy}_{symbol}_{timeframe}_indicators.csv")
     output_file = args.output or config.get('output_file', 'signals_plot.html')
 
     logger.info(f"Loading price data for {symbol} ({'futures' if futures else 'spot'}) from {hdf5_path}")
@@ -272,16 +287,22 @@ def main():
     logger.info(f"Loading signals from {signals_path}")
     signals_df = load_signals(signals_path)
 
+    logger.info(f"Loading indicators from {indicators_path}")
+    try:
+        indicators_df = load_indicators(indicators_path)
+    except Exception as e:
+        logger.warning(f"Could not load indicators: {e}. Proceeding without indicators.")
+        indicators_df = pd.DataFrame()
+
     # Filter price data to match signals period
-    if not signals_df.empty:
-        start_date = signals_df.index.min()
-        end_date = signals_df.index.max()
-        price_df = price_df[(price_df.index >= start_date) & (price_df.index <= end_date)]
-    else:
-        logger.warning("Empty signals DataFrame. Using full price data range.")
+    start_date = signals_df.index.min()
+    end_date = signals_df.index.max()
+    price_df = price_df[(price_df.index >= start_date) & (price_df.index <= end_date)]
+    if not indicators_df.empty:
+        indicators_df = indicators_df[(indicators_df.index >= start_date) & (indicators_df.index <= end_date)]
 
     logger.info("Creating candlestick chart")
-    fig = create_candlestick_chart(price_df, signals_df, symbol, futures, signals_path)
+    fig = create_candlestick_chart(price_df, signals_df, indicators_df, symbol, futures, strategy)
 
     logger.info(f"Saving chart to {output_file}")
     fig.write_html(output_file)

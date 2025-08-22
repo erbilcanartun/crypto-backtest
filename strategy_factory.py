@@ -25,7 +25,7 @@ class StrategyFactory:
             try:
                 from strategies.supertrend import SupertrendStrategy
                 cls.register_strategy("supertrend", SupertrendStrategy)
-                from strategies.moving_average_crossover import MovingAverageCrossoverStrategy
+                from strategies.moving_average_crossover import MovingAverageCrossoverStrategy  # Ensure import
                 cls.register_strategy("moving_average_crossover", MovingAverageCrossoverStrategy)
             except ImportError as e:
                 logger.error(f"Could not import strategies: {str(e)}")

@@ -8,16 +8,10 @@ import logging
 logger = logging.getLogger(__name__)
 
 class SupertrendStrategy(Strategy):
-    """
-    Supertrend strategy for spot and futures markets.
-    """
     def __init__(self, atr_period: int, atr_multiplier: float, 
                  leverage: float = 1.0, commission_rate: float = 0.04, 
                  initial_capital: float = 10000.0, futures: bool = False,
                  stop_loss_pct: float = 0.02, use_stop_loss: bool = True):
-        """
-        Initialize the Supertrend strategy.
-        """
         super().__init__(atr_period=atr_period, atr_multiplier=atr_multiplier, 
                         leverage=leverage, commission_rate=commission_rate, 
                         initial_capital=initial_capital, futures=futures,
@@ -30,6 +24,10 @@ class SupertrendStrategy(Strategy):
         self.futures = futures
         self.stop_loss_pct = stop_loss_pct
         self.use_stop_loss = use_stop_loss
+        if self.futures:
+            logger.info(f"Futures mode enabled with leverage={leverage}x")
+        else:
+            logger.info("Spot mode enabled (leverage ignored)")
     
     def calculate_indicators(self, df: pd.DataFrame) -> pd.DataFrame:
         """

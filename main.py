@@ -48,7 +48,7 @@ def run_data_collection(params: Dict[str, Any]) -> Optional[Dict[str, Any]]:
         logger.error(f"Invalid symbol: {symbol}")
         return None
 
-    logger.info(f"Collecting data for {symbol} on {exchange}")
+    logger.info(f"Collecting data for {symbol} on {exchange} ({'futures' if params.get('futures', False) else 'spot'})")
     collect_all(client, exchange, symbol, params.get("futures", False))
     return {"mode": "data", "status": "completed", "exchange": exchange, "symbol": symbol}
 
@@ -67,33 +67,44 @@ def run_backtest_operation(params: Dict[str, Any]) -> Optional[Dict[str, Any]]:
         logger.error(f"Invalid symbol: {symbol}")
         return None
 
-    strategy = params.get("strategy", "").lower()
-    timeframe = params.get("timeframe")
     from_time = params.get("from_time")
     to_time = params.get("to_time")
+    if isinstance(from_time, str):
+        from_time = int(datetime.datetime.strptime(from_time, "%Y-%m-%d").timestamp() * 1000)
+    if isinstance(to_time, str):
+        to_time = int(datetime.datetime.strptime(to_time, "%Y-%m-%d").timestamp() * 1000) + 86399999  # End of day
+
     strategy_params = params.get("strategy_params", {})
-    save_signals = params.get("save_signals", True)
+    # Ensure futures consistency
+    futures = params.get("futures", False)
+    strategy_params["futures"] = futures
 
-    # Convert string timestamps to milliseconds
-    try:
-        from_time_ms = int(datetime.datetime.strptime(from_time, "%Y-%m-%d").timestamp() * 1000)
-        to_time_ms = int(datetime.datetime.strptime(to_time, "%Y-%m-%d").timestamp() * 1000)
-    except Exception as e:
-        logger.error(f"Failed to convert timestamps: {e}")
-        return None
+    logger.info(f"Running backtest for {symbol} on {exchange} ({'futures' if futures else 'spot'}) with strategy {params['strategy']}")
 
-    logger.info(f"Running backtest for {symbol} on {exchange} ({timeframe}) from {from_time} to {to_time}")
     results = backtest_run(
         exchange=exchange,
         symbol=symbol,
-        strategy=strategy,
-        tf=timeframe,
-        from_time=from_time_ms,
-        to_time=to_time_ms,
+        strategy=params["strategy"],
+        tf=params["timeframe"],
+        from_time=from_time,
+        to_time=to_time,
         strategy_params=strategy_params,
-        save_signals=save_signals
+        save_signals=params.get("save_signals", True),
+        futures=futures  # Pass futures
     )
-    return results
+
+    if results:
+        output_file = params.get("output_file", "backtest_results.json")  # Default if not specified
+        if output_file:
+            try:
+                with open(output_file, 'w') as f:
+                    json.dump(results, f, indent=4)
+                logger.info(f"Backtest results saved to {output_file}")
+            except Exception as e:
+                logger.error(f"Failed to save results to {output_file}: {e}")
+        else:
+            logger.info("Backtest completed but no output_file specified; results not saved to file.")
+        return results
 
 def main():
     parser = argparse.ArgumentParser(description="Cryptocurrency trading strategy backtesting framework")

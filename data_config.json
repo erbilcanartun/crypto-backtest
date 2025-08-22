@@ -2,5 +2,5 @@
     "mode": "data",
     "exchange": "binance",
     "symbol": "BTCUSDT",
-    "futures": false
+    "futures": true
 }

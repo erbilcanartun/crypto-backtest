@@ -30,6 +30,10 @@ class MovingAverageCrossoverStrategy(Strategy):
         self.futures = futures
         self.stop_loss_pct = stop_loss_pct
         self.use_stop_loss = use_stop_loss
+        if self.futures:  # Added for mode/leverage confirmation
+            logger.info(f"Futures mode enabled with leverage={leverage}x")
+        else:
+            logger.info("Spot mode enabled (leverage ignored)")
 
     def calculate_indicators(self, df: pd.DataFrame) -> pd.DataFrame:
         """
@@ -57,113 +61,76 @@ class MovingAverageCrossoverStrategy(Strategy):
         entry_price = 0.0
         capital = self.initial_capital
         cum_pnl = 0.0
-        max_capital = capital
+        peak_capital = self.initial_capital
 
         for i in range(1, len(df)):
-            curr_close = df['close'].iloc[i]
-            curr_low = df['low'].iloc[i]
-            curr_high = df['high'].iloc[i]
-            prev_short = df['short_ema'].iloc[i-1]
-            prev_long = df['long_ema'].iloc[i-1]
-            curr_short = df['short_ema'].iloc[i]
-            curr_long = df['long_ema'].iloc[i]
+            if df['short_ema'].iloc[i] > df['long_ema'].iloc[i] and df['short_ema'].iloc[i-1] <= df['long_ema'].iloc[i-1]:
+                df['signal'].iloc[i] = 1 if not self.futures else 1  # Buy/Long
+            elif df['short_ema'].iloc[i] < df['long_ema'].iloc[i] and df['short_ema'].iloc[i-1] >= df['long_ema'].iloc[i-1]:
+                df['signal'].iloc[i] = -1  # Sell/Short or close
 
-            # Check stop-loss only if enabled
-            stop_loss_triggered = False
-            exit_price = 0.0
-            if self.use_stop_loss and position != 0:
-                stop_loss_price = 0.0
-                if position == 1:  # Long
-                    stop_loss_price = entry_price * (1 - self.stop_loss_pct)
-                elif position == -1:  # Short
-                    stop_loss_price = entry_price * (1 + self.stop_loss_pct)
+            price = df['close'].iloc[i]
 
-                if position == 1 and curr_low <= stop_loss_price:
-                    stop_loss_triggered = True
-                    exit_price = min(curr_close, stop_loss_price)
-                elif position == -1 and curr_high >= stop_loss_price:
-                    stop_loss_triggered = True
-                    exit_price = max(curr_close, stop_loss_price)
+            # Handle stop-loss (futures only)
+            if self.use_stop_loss and self.futures and position != 0:
+                if position > 0 and price <= entry_price * (1 - self.stop_loss_pct):
+                    df['signal'].iloc[i] = -1  # Close long on SL
+                elif position < 0 and price >= entry_price * (1 + self.stop_loss_pct):
+                    df['signal'].iloc[i] = 1  # Close short on SL
 
-            if stop_loss_triggered:
-                df['signal'].iloc[i] = -position
-                df['position'].iloc[i] = 0
-                df['exit_price'].iloc[i] = exit_price
-                df['entry_price'].iloc[i] = entry_price
-                trade_return = 0.0
-                if self.futures:
-                    trade_return = (exit_price - entry_price) / entry_price * position * self.leverage
-                else:
-                    trade_return = (exit_price - entry_price) / entry_price * position
-                commission = abs(trade_return) * self.commission_rate / 100
-                trade_pnl = (trade_return - commission) * capital
-                cum_pnl += trade_pnl
-                capital += trade_pnl
-                df['trade_pnl'].iloc[i] = trade_pnl
-                df['cum_pnl'].iloc[i] = cum_pnl
-                df['drawdown'].iloc[i] = (max_capital - capital) / max_capital
-                max_capital = max(max_capital, capital)
-                position = 0
-                entry_price = 0.0
-                continue
+            # Execute trades
+            if df['signal'].iloc[i] == 1:  # Buy/Long signal
+                if position <= 0:  # Enter or flip to long
+                    if position < 0:  # Close short first
+                        exit_price = price
+                        trade_pnl = position * (exit_price - entry_price) / entry_price * 100 - self.commission_rate * 2
+                        cum_pnl += trade_pnl
+                        capital *= (1 + trade_pnl / 100)
+                        df['exit_price'].iloc[i] = exit_price
+                        df['trade_pnl'].iloc[i] = trade_pnl
+                        df['cum_pnl'].iloc[i] = cum_pnl
 
-            # Regular crossover signals
-            if prev_short < prev_long and curr_short > curr_long:  # Crossover: buy
-                if position == -1:  # Exit short
-                    df['signal'].iloc[i] = 1  # Exit short and enter long
-                    df['position'].iloc[i] = 1
-                    df['exit_price'].iloc[i] = curr_close
+                    # Enter long
+                    entry_price = price
+                    if self.futures:
+                        position = (capital * self.leverage) / entry_price
+                    else:
+                        position = capital / entry_price
                     df['entry_price'].iloc[i] = entry_price
-                    trade_return = (curr_close - entry_price) / entry_price * position * (self.leverage if self.futures else 1)
-                    commission = abs(trade_return) * self.commission_rate / 100
-                    trade_pnl = (trade_return - commission) * capital
-                    cum_pnl += trade_pnl
-                    capital += trade_pnl
-                    df['trade_pnl'].iloc[i] = trade_pnl
-                    df['cum_pnl'].iloc[i] = cum_pnl
-                    df['drawdown'].iloc[i] = (max_capital - capital) / max_capital
-                    max_capital = max(max_capital, capital)
+                    capital -= capital * self.commission_rate / 100  # Commission on entry
 
-                position = 1
-                entry_price = curr_close
-                df['signal'].iloc[i] = 1
-                df['position'].iloc[i] = 1
-                df['entry_price'].iloc[i] = entry_price
-            elif prev_short > prev_long and curr_short < curr_long:  # Crossunder: sell
-                if position == 1:  # Exit long
-                    df['signal'].iloc[i] = -1  # Exit long and enter short
-                    df['position'].iloc[i] = -1
-                    df['exit_price'].iloc[i] = curr_close
-                    df['entry_price'].iloc[i] = entry_price
-                    trade_return = (curr_close - entry_price) / entry_price * position * (self.leverage if self.futures else 1)
-                    commission = abs(trade_return) * self.commission_rate / 100
-                    trade_pnl = (trade_return - commission) * capital
-                    cum_pnl += trade_pnl
-                    capital += trade_pnl
-                    df['trade_pnl'].iloc[i] = trade_pnl
-                    df['cum_pnl'].iloc[i] = cum_pnl
-                    df['drawdown'].iloc[i] = (max_capital - capital) / max_capital
-                    max_capital = max(max_capital, capital)
+            elif df['signal'].iloc[i] == -1:  # Sell/Short signal
+                if position >= 0:  # Exit or flip to short
+                    if position > 0:  # Close long first
+                        exit_price = price
+                        trade_pnl = position * (exit_price - entry_price) / entry_price * 100 - self.commission_rate * 2
+                        cum_pnl += trade_pnl
+                        capital *= (1 + trade_pnl / 100)
+                        df['exit_price'].iloc[i] = exit_price
+                        df['trade_pnl'].iloc[i] = trade_pnl
+                        df['cum_pnl'].iloc[i] = cum_pnl
 
-                position = -1
-                entry_price = curr_close
-                df['signal'].iloc[i] = -1
-                df['position'].iloc[i] = -1
-                df['entry_price'].iloc[i] = entry_price
-            else:
-                df['position'].iloc[i] = position
-                df['entry_price'].iloc[i] = entry_price
-                df['cum_pnl'].iloc[i] = cum_pnl
-                df['drawdown'].iloc[i] = (max_capital - capital) / max_capital
+                    if self.futures:
+                        # Enter short
+                        entry_price = price
+                        position = - (capital * self.leverage) / entry_price
+                        df['entry_price'].iloc[i] = entry_price
+                        capital -= capital * self.commission_rate / 100  # Commission on entry
 
-        logger.info(f"Generated {len(df[df['signal'] != 0])} signals.")
+            df['position'].iloc[i] = position
+            current_value = capital + position * (price - entry_price) if position != 0 else capital
+            drawdown = (peak_capital - current_value) / peak_capital * 100 if peak_capital > 0 else 0
+            df['drawdown'].iloc[i] = drawdown
+            if current_value > peak_capital:
+                peak_capital = current_value
+
         return df
 
     def calculate_performance(self, df: pd.DataFrame) -> Dict[str, float]:
         """
         Calculate performance metrics.
         """
-        final_capital = self.initial_capital + df['cum_pnl'].iloc[-1] if not df['cum_pnl'].empty else self.initial_capital
+        final_capital = df['cum_pnl'].iloc[-1] + self.initial_capital if not df.empty else self.initial_capital
         total_return = (final_capital - self.initial_capital) / self.initial_capital * 100
         max_drawdown = df['drawdown'].max() if not df['drawdown'].empty else 0
 

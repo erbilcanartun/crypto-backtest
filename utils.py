@@ -56,6 +56,11 @@ STRAT_PARAMS = {
             "name": "Use Stop Loss", 
             "type": bool,
             "default": True
+        },
+        "futures": {
+            "name": "Futures Mode", 
+            "type": bool,
+            "default": False
         }
     },
     "moving_average_crossover": {
@@ -104,6 +109,11 @@ STRAT_PARAMS = {
             "name": "Use Stop Loss", 
             "type": bool,
             "default": True
+        },
+        "futures": {  # Added for consistency
+            "name": "Futures Mode", 
+            "type": bool,
+            "default": False
         }
     }
 }
@@ -121,34 +131,29 @@ def resample_timeframe(data: pd.DataFrame, tf: str) -> pd.DataFrame:
     if tf not in TF_EQUIV:
         valid_tfs = ', '.join(TF_EQUIV.keys())
         raise ValueError(f"Invalid timeframe: {tf}. Must be one of: {valid_tfs}")
-    return data.resample(TF_EQUIV[tf]).agg({
-        "open": "first",
-        "high": "max",
-        "low": "min",
-        "close": "last",
-        "volume": "sum"
-    }).dropna()
 
-def validate_numeric_param(value: Any, param_type: type, min_val: Optional[float] = None, 
-                           max_val: Optional[float] = None, name: Optional[str] = None) -> tuple[bool, Optional[str], Any]:
+    return data.resample(TF_EQUIV[tf]).agg(
+        {"open": "first", "high": "max", "low": "min", "close": "last", "volume": "sum"}
+    )
+
+def validate_numeric_param(value, param_type, min_val=None, max_val=None, param_name=None):
     """
-    Validate a parameter (numeric or boolean).
+    Validate a numeric parameter.
     """
-    param_name = name if name else "Parameter"
+    param_name = param_name if param_name else "Parameter"
     try:
-        if param_type is bool:
-            if not isinstance(value, bool):
-                try:
-                    if isinstance(value, str):
-                        value = value.lower() in ('true', '1')
-                    elif isinstance(value, (int, float)):
-                        value = bool(value)
-                    else:
-                        raise ValueError
-                except ValueError:
-                    error_msg = f"{param_name} must be a valid boolean"
-                    logger.warning(error_msg)
-                    return False, error_msg, None
+        if param_type == bool:
+            try:
+                if isinstance(value, str):
+                    value = value.lower() in ('true', '1')
+                elif isinstance(value, (int, float)):
+                    value = bool(value)
+                else:
+                    raise ValueError
+            except ValueError:
+                error_msg = f"{param_name} must be a valid boolean"
+                logger.warning(error_msg)
+                return False, error_msg, None
             return True, None, value
         else:
             converted = param_type(value)

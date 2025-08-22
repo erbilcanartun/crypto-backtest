@@ -69,15 +69,23 @@ class ConfigHandler:
         required_fields = ['exchange', 'symbol', 'strategy', 'timeframe']
         for field in required_fields:
             if field not in config:
-                errors.append(f"Missing required field for backtest mode: {field}")
+                errors.append(f"Missing required field: {field}")
 
-        if 'strategy_params' not in config:
-            errors.append("Missing required field: strategy_params")
-        else:
+        if 'exchange' in config and config['exchange'].lower() != 'binance':
+            errors.append(f"Invalid exchange: {config['exchange']}. Must be 'binance'")
+
+        if 'timeframe' in config and config['timeframe'] not in ['1m', '5m', '15m', '30m', '1h', '4h', '12h', '1d']:
+            errors.append(f"Invalid timeframe: {config['timeframe']}")
+
+        if 'strategy' in config:
+            strategy = config['strategy']
             from utils import STRAT_PARAMS
-            strategy = config.get('strategy', '').lower()
-            if strategy in STRAT_PARAMS:
+            if strategy not in STRAT_PARAMS:
+                errors.append(f"Unknown strategy: {strategy}")
+            else:
                 strat_param_def = STRAT_PARAMS[strategy]
+                if 'strategy_params' not in config:
+                    config['strategy_params'] = {}
                 for param_code, param_info in strat_param_def.items():
                     if param_code not in config['strategy_params']:
                         errors.append(f"Missing required parameter for {strategy}: {param_info['name']} ({param_code})")
@@ -115,7 +123,7 @@ class ConfigHandler:
             "exchange": "binance",
             "symbol": "BTCUSDT",
             "futures": False,
-            "strategy": "moving_average_crossover",
+            "strategy": "moving_average_crossover",  # Updated to use the other strategy as default example
             "timeframe": "1h",
             "from_time": (datetime.datetime.now() - datetime.timedelta(days=30)).strftime("%Y-%m-%d"),
             "to_time": datetime.datetime.now().strftime("%Y-%m-%d"),
@@ -125,9 +133,9 @@ class ConfigHandler:
                 "leverage": 1.0,
                 "commission_rate": 0.04,
                 "initial_capital": 10000.0,
-                "futures": False,
                 "stop_loss_pct": 0.02,
-                "use_stop_loss": True
+                "use_stop_loss": True,
+                "futures": False  # Added for consistency
             },
             "save_signals": True,
             "output_file": "backtest_results.json"

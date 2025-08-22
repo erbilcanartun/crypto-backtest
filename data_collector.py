@@ -21,10 +21,10 @@ def collect_all(client: BinanceClient, exchange: str, symbol: str, futures: bool
     if oldest_ts is None:
         data = client.get_historical_data(symbol, end_time=int(time.time() * 1000) - 60000)
         if not data:
-            logger.warning(f"{exchange} {symbol}: No initial data found")
+            logger.warning(f"{exchange} {symbol} ({'futures' if futures else 'spot'}): No initial data found")
             return
 
-        logger.info(f"{exchange} {symbol}: Collected {len(data)} initial candles from {ms_to_dt(data[0][0])} to {ms_to_dt(data[-1][0])}")
+        logger.info(f"{exchange} {symbol} ({'futures' if futures else 'spot'}): Collected {len(data)} initial candles from {ms_to_dt(data[0][0])} to {ms_to_dt(data[-1][0])}")
         oldest_ts = data[0][0]
         most_recent_ts = data[-1][0]
         h5_db.write_data(symbol, data, futures)
@@ -50,7 +50,7 @@ def collect_all(client: BinanceClient, exchange: str, symbol: str, futures: bool
         if data[-1][0] > most_recent_ts:
             most_recent_ts = data[-1][0]
 
-        logger.info(f"{exchange} {symbol}: Collected {len(data)} recent candles from {ms_to_dt(data[0][0])} to {ms_to_dt(data[-1][0])}")
+        logger.info(f"{exchange} {symbol} ({'futures' if futures else 'spot'}): Collected {len(data)} recent candles from {ms_to_dt(data[0][0])} to {ms_to_dt(data[-1][0])}")
         time.sleep(1.1)
 
     if data_to_insert:
@@ -61,7 +61,7 @@ def collect_all(client: BinanceClient, exchange: str, symbol: str, futures: bool
     while True:
         data = client.get_historical_data(symbol, end_time=int(oldest_ts - 60000))
         if not data:
-            logger.info(f"{exchange} {symbol}: No older data found before {ms_to_dt(oldest_ts)}")
+            logger.info(f"{exchange} {symbol} ({'futures' if futures else 'spot'}): No older data found before {ms_to_dt(oldest_ts)}")
             break
 
         data_to_insert.extend(data)
@@ -73,7 +73,7 @@ def collect_all(client: BinanceClient, exchange: str, symbol: str, futures: bool
         if data[0][0] < oldest_ts:
             oldest_ts = data[0][0]
 
-        logger.info(f"{exchange} {symbol}: Collected {len(data)} older candles from {ms_to_dt(data[0][0])} to {ms_to_dt(data[-1][0])}")
+        logger.info(f"{exchange} {symbol} ({'futures' if futures else 'spot'}): Collected {len(data)} older candles from {ms_to_dt(data[0][0])} to {ms_to_dt(data[-1][0])}")
         time.sleep(1.1)
 
     if data_to_insert:
